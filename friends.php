@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Page</title>
+</head>
+
+<body>
+    <?php echo "Siema " . $_POST['username'] . " ty, skurczybyku"; ?>
+    <h2>Friends</h2>
+    <p><a href="logout.html">
+            &lt; Logout | </a> <a href="settings.html">Settings</a></p>
+    <hr>
+    <ul>
+        <li><a href="chat.html">Tom (3)</a></li>
+        <li><a href="chat.html">Marvin (1)</a></li>
+        <li><a href="chat.html">Tick</a></li>
+        <li><a href="chat.html">Trick</a></li>
+    </ul>
+    <hr>
+    <h2> New Requests </h2>
+    <ol>
+        <li>Friend Request from <strong> Track </strong> <button> Accept </button> <button> Reject</button></li>
+    </ol>
+    <hr>
+    <form method="post" action="friends.html">
+        <input type="text" id="addFriend" name="addFriend">
+        <input type="submit" value="Add">
+    </form>
+</body>
+
+</html>

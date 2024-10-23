@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+</head>
+
+<body>
+    <h2>Profile Settings</h2>
+    <form id="settingsForm" method="post" action="settings.html">
+        <fieldset>
+            <legend>Base Data</legend>
+            <span>First Name <input type="text" id="name" name="name" placeholder="Your name"> </span><br>
+            <span>Last Name <input type="text" id="surname" name="surname" placeholder="Your surname"></span><br>
+            <span> Coffee or Tea? <select name="choice" id="choice">
+                    <option value="neither"> Neither nor</option>
+                    <option value="coffee"> Coffee</option>
+                    <option value="tea"> Tea</option>
+
+                </select></span>
+        </fieldset>
+        <fieldset>
+            <legend> Tell Something About You </legend>
+            <input type="text" id="bio" name="bio" placeholder="Leave a comment here"
+                style="width:200px;height:50px;"><br>
+        </fieldset>
+        <fieldset>
+            <legend> Preferred Chat Layout</legend>
+            <input type="radio" id="oneline" name="radio1">Username and message in one line</input><br><br>
+            <input type="radio" id="sepline" name="radio2">Username and message in separated lines</input>
+
+        </fieldset>
+        <a href="friends.html">
+            <button type="button">Cancel</button>
+        </a>
+
+        <input type="submit" value="Save" form="settingsForm">
+
+    </form>
+
+</body>
+
+</html>
