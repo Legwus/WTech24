@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+p{
+    text-align: justify;
+}
+
+thead{
+    background-color: #ddd;
+}
+
+tbody tr td:nth-child(2),tbody tr td:first-child{
+    font-weight: bold;
+}
+
+tbody tr:nth-child(2n){
+    background-color: #eee;
+}
+
+table{
+border-collapse: collapse;
+width: 100%;
+}
+
+tr,td,th{
+    border: 1px solid #000;
+}
