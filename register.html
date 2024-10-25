@@ -14,22 +14,26 @@
     <fieldset>
         <legend>Register</legend>
         <form id="registerForm" action="friends.php" method="post">
+            <div class="username">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br>
-
+        </div>
+        <div class="username"></div>
             <label for="password">Password:</label>
 
             <input type="password" id="password" name="password" required> <br>
             <label for="confirm_password">Confirm Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" required><br><br>
-
+        </div>
 
 
     </fieldset>
+    <div class="login_buttons">
     <a href="login.html">
         <button type="button">Cancel</button>
     </a>
     <input type="submit" form="registerForm" value="Register">
+</div>
     </form>
 
 </body>
