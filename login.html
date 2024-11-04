@@ -12,29 +12,22 @@
     <img src="./images/chat.png" alt="Login page" style="width:100px;height:100px;">
     <h2>Please sign in</h2>
 
-    <fieldset>
-        <legend>Login</legend>
-        <form id="loginForm" action="friends.html" method="post">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username" required><br>
+    <form id="loginForm" action="friends.html" method="post">
+        <fieldset>
+            <legend>Login</legend>
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" required><br>
 
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password" required><br>
-
-    </fieldset>
-    <a href="register.html">
-        <button type="button">Register</button>
-    </a>
-    <input type="submit" form="loginForm" value="Login">
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" required><br>
+        </fieldset>
     </form>
-
-
-
-
-
-
-
-
+    <div id="buttons">
+        <a href="register.html">
+            <button type="button">Register</button>
+        </a>
+        <input type="submit" form="loginForm" value="Login">
+    </div>
 </body>
 
 </html>
