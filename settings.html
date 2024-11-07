@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <h2>Profile Settings</h2>
+    <div class="settingsTitle">
+        <h2 class="settingsTitle">Profile Settings</h2>
+    </div>
     <form id="settingsForm" method="post" action="settings.html">
         <fieldset>
             <legend>Base Data</legend>
@@ -32,14 +34,17 @@
             <input type="radio" id="oneline" name="radio1">Username and message in one line</input><br><br>
             <input type="radio" id="sepline" name="radio2">Username and message in separated lines</input>
 
+
         </fieldset>
+    </form>
+    <div class="buttons">
         <a href="friends.html">
             <button type="button">Cancel</button>
         </a>
 
         <input type="submit" value="Save" form="settingsForm">
+    </div>
 
-    </form>
 
 </body>
 

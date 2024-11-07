@@ -2,13 +2,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(243, 243, 243);
 }
+
+
 
 img {
     border-radius: 100%;
@@ -103,3 +105,27 @@ p a{
 }
 
 
+#settingsForm{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#settingsForm fieldset{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingsTitle{
+    
+    text-align: left;
+}
+
+.settingsTitle{
+    
+    width: 98%;
+}
