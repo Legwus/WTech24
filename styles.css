@@ -38,7 +38,7 @@ fieldset {
 }
 
 
-form .labels {
+form .labels, .settingsLabels {
     width: 50%;
     
     display: flex;
@@ -46,7 +46,7 @@ form .labels {
     flex-direction: column;
 }
 
-form .inputs {
+form .inputs, .settingsInputs {
     width: 50%;
 
     
@@ -56,13 +56,14 @@ form .inputs {
 
 }
 
-form label {
+form label, .settingsLabels {
+    
     padding: 4px;
     margin: 4px;
 }
 
-form input {
-
+form input , .settingsInputs{
+    
     border-radius: 0%;
     border-width: 1px;
     padding: 4px;
@@ -104,6 +105,16 @@ p a{
     color: rgb(52, 24, 211);
 }
 
+.leftNav{
+    
+    width: 98%;
+}
+
+a span{
+    color: black;
+}
+
+
 
 #settingsForm{
     width: 95%;
@@ -114,18 +125,86 @@ p a{
 }
 
 #settingsForm fieldset{
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-width: 1px;
+    border-color: black;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.settingsTitle{
-    
+.leftTitle{
     text-align: left;
+    width: 98%;
 }
 
-.settingsTitle{
+.aboutYou textarea{
+    width: 100%;
+    height: 8em;
     
+
+}
+
+fieldset .chatLayoutDiv{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: left;
+}
+
+.chatLayoutDiv label, .chatLayoutDiv input{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+.chatList {
+    list-style-type: none; /* Removes default bullet points */
+    border: 1px solid grey; /* Adds grey border */
+    border-radius: 8px; /* Rounds the edges */
+    background-color: white; /* White background */
+    margin: 1em; /* Adds 1em margin */
+    padding: 0.5em; /* Adds space inside the border */
     width: 98%;
+}
+
+.chatList li {
+    padding: 0.5em 1em; /* Adds padding for spacing */
+    display: flex; /* Enables flex layout */
+    justify-content: space-between; /* Aligns content */
+    align-items: center; /* Centers items vertically */
+}
+
+.chatList a {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Text color */
+    width: 100%;
+ 
+    display: flex;
+}
+
+.number {
+    background-color: blue; /* Blue background */
+    color: white; /* White text */
+    padding: 0.1em 0.3em; /* Padding for readability */
+    border-radius: 0px; /* Rounded corners */
+    
+    
+}
+
+hr {
+    border: none;
+    border-top: dashed; /* Removes default border */
+    border-width: 1px;
+    margin: 1em;
+    padding: 0em;
+    width: 98%;
+}
+
+ol{
+
+    
 }
