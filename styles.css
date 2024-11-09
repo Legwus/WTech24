@@ -1,13 +1,16 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
-    margin: 0 auto;
+    margin:0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(243, 243, 243);
+    max-width: 900px;
+    margin: 0 auto; /* Centers the body horizontally */
+    
 }
 
 
@@ -78,6 +81,7 @@ a button {
 
     border-style: hidden;
 
+
     background-color: rgb(163, 163, 163);
     color: white;
 }
@@ -87,9 +91,9 @@ a button {
     padding-bottom: 0.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
-
+    font-size: 1em;
     border-style: hidden;
-
+    border-radius: 5%;
     background-color: rgb(53, 100, 255);
     color: white;
 }
@@ -168,7 +172,9 @@ fieldset .chatLayoutDiv{
     background-color: white; /* White background */
     margin: 1em; /* Adds 1em margin */
     padding: 0.5em; /* Adds space inside the border */
-    width: 98%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
 }
 
 .chatList li {
@@ -189,7 +195,7 @@ fieldset .chatLayoutDiv{
 .number {
     background-color: blue; /* Blue background */
     color: white; /* White text */
-    padding: 0.1em 0.3em; /* Padding for readability */
+    padding: 0.1em 0.4em; /* Padding for readability */
     border-radius: 0px; /* Rounded corners */
     
     
@@ -205,6 +211,99 @@ hr {
 }
 
 ol{
+    
+    width: 90%;
+    display: flex;
+}
 
+button, .button{
+    background-color: rgb(165, 165, 165);
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-style: hidden;
+    border-radius: 7%;
+    font-size: 1em;
+    margin-left: 0.7em;
+}
+
+.addFriendForm{
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+}
+.addFriendForm input[type="text"]{
+    width: 100%;
+    font-size: 1em;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.red{
+    color: red;
+}
+
+.time{
+    color: rgba(128, 128, 128, 0.399);
     
 }
+
+.profileLayout{
+    
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em;
+    
+    
+}
+
+.profileLayout img{
+  
+    size: 100%;
+    margin: 1em;
+    align-self: center;
+}
+
+.profileDescription{
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin: 1em;
+}
+
+.bigProfilePic{
+    border-radius: 0%;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.link:hover, .loginAgain:hover{
+    color: green;
+    text-decoration: underline;
+}
+.red:hover{
+    color: rgb(255, 183, 0);
+    text-decoration: underline;
+}
+
+.submit:hover{
+    background-color: rgb(91, 149, 255);
+}
+
+button:hover, .button:hover{
+    background-color: grey;
+}
+

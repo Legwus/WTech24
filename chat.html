@@ -10,14 +10,18 @@
 
 <body>
     <h2>Chat with Tom</h2>
-    <p><a href="friends.html">
-            < Back | </a> <a href="profile.html">Profile | </a> <a href="friends.html"> Remove Friend </a> </p>
-
-    <p> Tom: Hallo, Welt!</p>
-    <p> Jerry: Wie gehts?</p>
-    <form method="post" action="chat.html">
+    <p class="leftNav"><a class="link" href="friends.html">
+        &lt; Back</a> <span> | </span> <a class="link" href="profile.html">Profile</a> <span> | </span> <a href="friends.html"> <span class="red">Remove Friend</span> </a> </p>
+    
+    <hr>    
+    <ol class="chatList">
+       <li> Tom: Hallo, Welt! <span class="time">19:33:10</span></li> 
+       <li> Jerry: Wie gehts? <span class="time">19:33:40</span></li>
+    </ol>
+    <hr>
+    <form class="addFriendForm" method="post" action="chat.html">
         <input type="text" id="message" name="message" placeholder="New Message">
-        <input type="submit" value="Send">
+        <input class="button" type="submit" value="Send">
     </form>
 </body>
 
