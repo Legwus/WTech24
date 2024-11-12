@@ -1,22 +1,311 @@
-* {
-    box-sizing: border-box;
-}
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin:0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-    max-width: 960px;
+    justify-content: center;
+    background-color: rgb(243, 243, 243);
+    max-width: 900px;
+    margin: 0 auto; /* Centers the body horizontally */
+    
 }
 
-body > *:not(#buttons) {
-    width: 100%;
+
+
+img {
+    border-radius: 100%;
+    margin-top: 3em;
+}
+
+
+
+fieldset {
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-width: 1px;
+    border-color: black;
+    margin-bottom: 0.5em;
+}
+
+#loginForm, #registerForm {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+
+form .labels, .settingsLabels {
+    width: 50%;
+    
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+}
+
+form .inputs, .settingsInputs {
+    width: 50%;
+
+    
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+}
+
+form label, .settingsLabels {
+    
+    padding: 4px;
+    margin: 4px;
+}
+
+form input , .settingsInputs{
+    
+    border-radius: 0%;
+    border-width: 1px;
+    padding: 4px;
+    margin: 4px;
+}
+
+a button {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    border-style: hidden;
+
+
+    background-color: rgb(163, 163, 163);
+    color: white;
+}
+
+.buttons input {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    font-size: 1em;
+    border-style: hidden;
+    border-radius: 5%;
+    background-color: rgb(53, 100, 255);
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+p a{
+    text-decoration: none; 
+    color: rgb(52, 24, 211);
+}
+
+.leftNav{
+    
+    width: 98%;
+}
+
+a span{
+    color: black;
+}
+
+
+
+#settingsForm{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-#buttons {
+#settingsForm fieldset{
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-width: 1px;
+    border-color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftTitle{
+    text-align: left;
+    width: 98%;
+}
+
+.aboutYou textarea{
+    width: 100%;
+    height: 8em;
+    
+
+}
+
+fieldset .chatLayoutDiv{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: left;
+}
+
+.chatLayoutDiv label, .chatLayoutDiv input{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+.chatList {
+    list-style-type: none; /* Removes default bullet points */
+    border: 1px solid grey; /* Adds grey border */
+    border-radius: 8px; /* Rounds the edges */
+    background-color: white; /* White background */
+    margin: 1em; /* Adds 1em margin */
+    padding: 0.5em; /* Adds space inside the border */
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatList li {
+    padding: 0.5em 1em; /* Adds padding for spacing */
+    display: flex; /* Enables flex layout */
+    justify-content: space-between; /* Aligns content */
+    align-items: center; /* Centers items vertically */
+}
+
+.chatList a {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Text color */
+    width: 100%;
+ 
+    display: flex;
+}
+
+.number {
+    background-color: blue; /* Blue background */
+    color: white; /* White text */
+    padding: 0.1em 0.4em; /* Padding for readability */
+    border-radius: 0px; /* Rounded corners */
+    
+    
+}
+
+hr {
+    border: none;
+    border-top: dashed; /* Removes default border */
+    border-width: 1px;
+    margin: 1em;
+    padding: 0em;
+    width: 98%;
+}
+
+ol{
+    
+    width: 90%;
+    display: flex;
+}
+
+button, .button{
+    background-color: rgb(165, 165, 165);
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-style: hidden;
+    border-radius: 7%;
+    font-size: 1em;
+    margin-left: 0.7em;
+}
+
+.addFriendForm{
+    width: 98%;
     display: flex;
     flex-direction: row;
-    align-items: center;
 }
+.addFriendForm input[type="text"]{
+    width: 100%;
+    font-size: 1em;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.red{
+    color: red;
+}
+
+.time{
+    color: rgba(128, 128, 128, 0.399);
+    
+}
+
+.profileLayout{
+    
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em;
+    
+    
+}
+
+.profileLayout img{
+  
+    size: 100%;
+    margin: 1em;
+    align-self: center;
+}
+
+.profileDescription{
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin: 1em;
+}
+
+.bigProfilePic{
+    border-radius: 0%;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.link:hover, .loginAgain:hover{
+    color: green;
+    text-decoration: underline;
+}
+.red:hover{
+    color: rgb(255, 183, 0);
+    text-decoration: underline;
+}
+
+.submit:hover{
+    background-color: rgb(91, 149, 255);
+}
+
+button:hover, .button:hover{
+    background-color: grey;
+}
+
+

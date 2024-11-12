@@ -9,25 +9,30 @@
 </head>
 
 <body>
-    <h2>Friends</h2>
-    <p><a href="logout.html">
-            &lt; Logout | </a> <a href="settings.html">Settings</a></p>
+
+    <div class="leftTitle">
+        <h2 class="leftTitle">Friends</h2>
+    </div>
+    <p class="leftNav"><a class="link" href="logout.html">
+            &lt; Logout</a><span> | </span> <a class="link" href="settings.html">Settings</a></p>
     <hr>
-    <ul>
-        <li><a href="chat.html">Tom (3)</a></li>
-        <li><a href="chat.html">Marvin (1)</a></li>
+    <ul class="chatList">
+        <li><a href="chat.html">Tom </a><span class="number">3</span></li>
+        <li><a href="chat.html">Marvin </a><span class="number">1</span></li>
         <li><a href="chat.html">Tick</a></li>
         <li><a href="chat.html">Trick</a></li>
     </ul>
     <hr>
-    <h2> New Requests </h2>
+    <div class="leftTitle">
+        <h2 class="leftTitle"> New Requests </h2>
+    </div>
     <ol>
         <li>Friend Request from <strong> Track </strong> <button> Accept </button> <button> Reject</button></li>
     </ol>
     <hr>
-    <form method="post" action="friends.html">
-        <input type="text" id="addFriend" name="addFriend">
-        <input type="submit" value="Add">
+    <form class="addFriendForm" method="post" action="friends.html">
+        <input type="text" id="addFriend" name="addFriend" placeholder="Add Friend to List">
+        <input class="button" type="submit" value="Add">
     </form>
 </body>
 
