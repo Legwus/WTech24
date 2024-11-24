@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+   
 </head>
 
 <body>
-<div class="flex-container">
-    <img class="default-image" src="./images/chat.png" alt="Login page" style="width:100px;height:100px;">
-    <h2>Please sign in</h2>
+    <div class="flex-container arialfont">
+        <div class="center">
+        
+            
+    <img class="img-rounded default-image-size" src="./images/chat.png" alt="Login page">
+    <h3>Please sign in</h2>
 
-    <fieldset>
+
+
+    <fieldset class="dotted-border fieldsetstyling">
         <legend>Login</legend>
+        
         <form id="loginForm" action="friends.html" method="post">
+            <br><label for="username">Username </label>
+            <input type="text" id="username" name="username" required placeholder="Username"><br><br>
 
-            <div class="labels">
-                <label for="username">Username</label>
-                <label for="password">Password</label>
-            </div>
-
-            <div class="inputs">
-                <input type="text" id="username" name="username" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-        </form>
+            <label for="password">Pass </label>
+            <input type="password" id="password" name="password" required placeholder="Password"><br><br>
+        
+      
     </fieldset>
+    
+    <a  class="nicebutton" href="register.html"  type="button">Register</button>
+    </a>
+    <input class="nicebutton justbluebkgrd" type="submit" form="loginForm" value="Login">
+</form>
+    
 
-    <div class="buttons">
-        <a href="register.html">
-            <button class="nicebutton" type="button">Register</button>
-        </a>
-        <input class="nicebutton" type="submit" form="loginForm" value="Login">
-    </div>
+
+</div>
+
+
+
+
 </div>
 </body>
 

@@ -9,32 +9,32 @@
 </head>
 
 <body>
-    <div class="flex-container">
-        <div class="leftTitle">
-            <h2 class="leftTitle">Friends</h2>
+    <div class="flex-container arialfont">
+        <div class="center">
+            <h2 class="align-to-the-left">Friends</h2>
+            <div class="megaklasa">
+                <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
+                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
+                <hr class="dotted-border">
+                <ul class="friendlist">
+                    <li><a href="chat.html">Tom</a> <span class="notification-border"> 3 </span></li>
+                    <li><a href="chat.html">Marvin</a> <span> 1 </span></li>
+                    <li><a href="chat.html">Tick</a></li>
+                    <li><a href="chat.html">Trick</a></li>
+                </ul>
+                <hr class="dotted-border">
+                <h2 class="align-to-the-left"> New Requests </h2>
+                <ol>
+                    <li class="align-to-the-left">Friend Request from <strong> Track </strong> <button class="nicebutton rounded-corners justbluebkgrd"> Accept </button> <button class="nicebutton rounded-corners "> Reject</button>
+                    </li>
+                </ol>
+                <hr class="dotted-border">
+                <form class="align-to-the-left" method="post" action="friends.html">
+                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" placeholder="Add a Friend to List">
+                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " type="submit" value="Add">
+                </form>
+            </div>
         </div>
-        <p class="leftNav align-to-the-left"><a class="link" href="logout.html">
-                &lt; Logout</a><span> | </span> <a class="link" href="settings.html">Settings</a></p>
-        <hr>
-        <ul class="chatList">
-            <li><a href="chat.html">Tom </a><span class="number">3</span></li>
-            <li><a href="chat.html">Marvin </a><span class="number">1</span></li>
-            <li><a href="chat.html">Tick</a></li>
-            <li><a href="chat.html">Trick</a></li>
-
-        </ul>
-        <hr>
-        <div class="leftTitle">
-            <h2 class="leftTitle"> New Requests </h2>
-        </div>
-        <ol>
-            <li>Friend Request from <strong> Track </strong> <button> Accept </button> <button> Reject</button></li>
-        </ol>
-        <hr>
-        <form class="addFriendForm" method="post" action="friends.html">
-            <input type="text" id="addFriend" name="addFriend" placeholder="Add Friend to List">
-            <input class="button" type="submit" value="Add">
-        </form>
     </div>
 </body>
 

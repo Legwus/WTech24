@@ -1,56 +1,187 @@
-
-body {
+body, html {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin:0;
-    width: 100%;
+    height: 100%;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(243, 243, 243);
-    margin: 0 auto; /* Centers the body horizontally */
-    flex-direction: column;
-    min-height:100dvh;
 }
 
+
+
 .flex-container {
-    height:100%;
     width:90vw;
     display: flex;
     justify-content:center;
     align-items: center;
-    max-width: 800px;
     flex-direction: column;
     text-align: center;
-    
+    height:100vh;
 }
 
-@media screen and (max-width:810px) {
-    .horizontal-flex {
-        flex-direction: column;
-        width:250px;
-    }
-
-    
-}
-
-
-/* .flex-container > div {
+.flex-container > div {
+    background-color: #f8f2ff;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 800px;
+    max-height:700px;
     margin: 10px;
     padding: 20px;
     font-size: 25px;
     width:100%;
     box-sizing: border-box;
+}
+
+.horizontal-flex {
+    flex-wrap:wrap;
+    display: flex;
+    flex-direction:row;
+    
+}
+
+.flex-container h2 {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+
+.arialfont {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dotted-border {
+    border-style:dotted;
+    border-color: grey;
+}
+
+form .friend-add-button {
+    margin-left:5%;
+    width:20%;
+}
+
+.img-rounded {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.fieldsetstyling {
+    font-size: 16px;
+    background-color: white;
+}
+
+/* .fieldsetstyling > *:not(legend):not(#bio) {
+    margin-left:10%;
 } */
 
 
-.horizontal-flex {
-    gap: 1rem;
-    display: flex;
+
+.fieldsetstyling input {
+    height:22px;
+}
+
+.megaklasa {
+    font-size:15px;
+    margin: unset 10px;
     
 }
+.megaklasa a {
+    color:rgb(33, 137, 255);
+    text-decoration: none;
+}
+
+.megaklasa a:visited {
+    color:rgb(33, 137, 255);
+    text-decoration: none;
+}
+
+
+
+.friendlist {
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:10px;
+   
+    list-style: none;
+    /* text-align: start; */
+    background: white;
+}
+
+
+.friendlist li {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    width:100%;
+
+}
+
+.friendlist li:first-child {
+    margin-top: 10px;
+}
+
+.friendlist li:last-child {
+    margin-bottom: 10px;
+}
+
+.friendlist a {
+    color:black;
+}
+
+.friendlist a:visited {
+    color:black;
+}
+
+.friendlist span {
+    text-align:center;
+    display:block;
+    margin-left:auto;
+    background-color: rgb(33, 137, 255);
+    color:white;
+    width:18px;
+    font-weight: bold;
+}
+
+.chat .chatbox {
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:10px;
+   
+    list-style: none;
+    /* text-align: start; */
+    background: white;
+}
+
+.chat .chatbox li {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    width:100%;
+
+}
+
+
+.profile
+
+.chat .chatbox li:first-child {
+    margin-top: 20px;
+}
+
+.chat .chatbox li:last-child {
+    margin-bottom: 20px;
+}
+
+.chat .chatbox a {
+    color:black;
+}
+
+.chat .chatbox a:visited {
+    color:black;
+}
+
+
 
 .align-to-the-left {
     text-align: start;
@@ -61,78 +192,119 @@ body {
     align-items: start;
 }
 
-.default-image {
-    border-radius: 100%;
-    margin-top: 3em;
+#sendButton {
+
+margin-top:0px;
 }
 
-
-
-fieldset {
-    width: 60%;
-    background-color: rgb(255, 255, 255);
-    border-style: dotted;
-    border-width: 1px;
-    border-color: black;
-    margin-bottom: 0.5em;
+.chat .megaklasa .red-link {
+    color: red;
 }
 
-#loginForm, #registerForm {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-
-
+.profile .megaklasa .red-link {
+    color: red;
 }
 
-
-form .labels, .settingsLabels {
-    width: 50%;
-    
-    display: flex;
-    align-items: end;
-    flex-direction: column;
+.profile .infobox {
+    margin-left:15px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:30px;
+   max-width:435px;
+    list-style: none;
+    text-align: start; 
+    background: white;
+}
+@media only screen and (max-width:810px) {
+    .profile .infobox {
+        margin-left:15px;
+        border: 2px solid rgb(216, 216, 216);
+        padding-left:10px;
+        padding-right:30px;
+        padding-bottom:30px;
+        margin-bottom:30px;
+       max-width:365px;
+        list-style: none;
+        text-align: start; 
+        background: white;
+    }
 }
 
-form .inputs, .settingsInputs {
-    width: 50%;
-
-    
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-
+@media only screen and (max-width:600px) {
+    .profile .infobox {
+        margin-top:30px;
+        margin-left:15px;
+        border: 2px solid rgb(216, 216, 216);
+        padding-left:10px;
+        padding-right:30px;
+        padding-bottom:30px;
+        margin-bottom:30px;
+       max-width:206px;
+        list-style: none;
+        text-align: start; 
+        background: white;
+    }
 }
 
-form label, .settingsLabels {
-    
-    padding: 4px;
-    margin: 4px;
-}
-
-form input , .settingsInputs{
-    
-    border-radius: 0%;
-    border-width: 1px;
-    padding: 4px;
-    margin: 4px;
-}
-
-a .nicebutton {
-    padding:10px;
-    border:1px;
-    display:inline-block;
-    margin:5px;
-    margin-top: 10px;
-    background-color: rgb(162, 162, 162);
-    font-size:15px;
-    
+.profile .strongtext {
     font-weight: bold;
-    color:white;
-    text-decoration: none;
-    cursor:pointer;
+}
+
+.profile .setting-choice-padding {
+    padding-left: 35px;
+}
+
+
+
+.fieldsetstyling label {
+    width:150px;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: right;
+    margin-right: 5px;
     
+}
+
+.testkurwamac {
+    width:150px;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.fieldsetstyling select {
+    width:160px;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: left;
+    margin-right: 0px;
+    background-color: white;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    height:26px;
+}
+
+
+.a-button {
+    text-decoration: none;
+}
+
+
+.settings fieldset {
+    margin-bottom: 10px;
+}
+
+.settings textarea {
+    resize:none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+fieldset .about-you-textfield {
+    width: 99%;
+    height: 200px;
 }
 
 .nicebutton {
@@ -151,213 +323,44 @@ a .nicebutton {
     
 }
 
-/* a button {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-
-    border-style: hidden;
-
-
-    background-color: rgb(163, 163, 163);
-    color: white;
-} */
-
-
-.buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.nicebutton:hover {
+    background-color: rgb(72, 72, 72);
 }
 
-p a{
-    text-decoration: none; 
-    color: rgb(52, 24, 211);
+.button-disabled {
+    cursor:not-allowed;
 }
 
-.leftNav{
-    
-    width: 98%;
+.rounded-corners {
+    border-radius: 3px;
 }
 
-a span{
-    color: black;
+.justbluebkgrd {
+    background-color: rgb(33, 137, 255);
 }
 
-
-
-#settingsForm{
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.justbluebkgrd:hover {
+    background-color: rgb(22, 86, 160);
 }
 
-#settingsForm fieldset{
-    background-color: rgb(255, 255, 255);
-    border-style: dotted;
-    border-width: 1px;
-    border-color: black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.big-textfield {
+    width:70%;
+    height:30px;
 }
 
-.leftTitle{
-    text-align: left;
-    width: 98%;
+.default-image-size {
+    width:150px;
+    height:150px;
 }
 
-.aboutYou textarea{
-    width: 100%;
-    height: 8em;
-    
-
-}
-
-fieldset .chatLayoutDiv{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: start;
-    justify-content: left;
-}
-
-.chatLayoutDiv label, .chatLayoutDiv input{
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-
-.chatList {
-    list-style-type: none; /* Removes default bullet points */
-    border: 1px solid grey; /* Adds grey border */
-    border-radius: 8px; /* Rounds the edges */
-    background-color: white; /* White background */
-    margin: 1em; /* Adds 1em margin */
-    padding: 0.5em; /* Adds space inside the border */
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-}
-
-.chatList li {
-    padding: 0.5em 1em; /* Adds padding for spacing */
-    display: flex; /* Enables flex layout */
-    justify-content: space-between; /* Aligns content */
-    align-items: center; /* Centers items vertically */
-}
-
-.chatList a {
-    text-decoration: none; /* Removes underline */
-    color: black; /* Text color */
-    width: 100%;
- 
-    display: flex;
-}
-
-.number {
-    background-color: blue; /* Blue background */
-    color: white; /* White text */
-    padding: 0.1em 0.4em; /* Padding for readability */
-    border-radius: 0px; /* Rounded corners */
-    
-    
-}
-
-hr {
-    border: none;
-    border-top: dashed; /* Removes default border */
-    border-width: 1px;
-    margin: 1em;
-    padding: 0em;
-    width: 98%;
-}
-
-ol{
-    
-    width: 90%;
-    display: flex;
-}
-
-button, .button{
-    background-color: rgb(165, 165, 165);
-    color: white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    border-style: hidden;
-    font-size: 1em;
-    margin-left: 0.7em;
-}
-
-.addFriendForm{
-    width: 98%;
-    display: flex;
-    flex-direction: row;
-}
-.addFriendForm input[type="text"]{
-    width: 100%;
-    font-size: 1em;
-    border-style: solid;
-    border-width: 1px;
-}
-
-.red{
-    color: red;
-}
-
-.time{
-    color: rgba(128, 128, 128, 0.399);
-    
-}
-
-
-img.profile-pic{
+.profile-image-size {
+    width:250px;
     height:250px;
+    margin-left:15px;
 }
 
-.profileDescription{
-    border-style: solid;
-    border-width: 1px;
-    background-color: white;
+.form-group {
     display: flex;
-    flex-direction: column;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-}
-
-.bigProfilePic{
-    border-radius: 0%;
-}
-
-.bold{
-    font-weight: bold;
-}
-
-.link:hover, .loginAgain:hover{
-    color: green;
-    text-decoration: underline;
-}
-.red:hover{
-    color: rgb(255, 183, 0);
-    text-decoration: underline;
-}
-
-.submit:hover{
-    background-color: rgb(91, 149, 255);
-}
-
-button:hover, .button:hover{
-    background-color: grey;
-}
-
-.megaklasa {
-    font-size:15px;
-    margin: unset 10px;
-    
+    align-items: center;
+    margin-bottom: 10px;
 }
