@@ -10,7 +10,7 @@ var token = tom;
 
 window.setInterval(function () {
     loadFriends();
-}, 1000);
+}, 10000);
 
 
 loadFriends();
@@ -119,7 +119,7 @@ function listUsers() {
             // Add options to the datalist and handle validation
             data.forEach(function (user) {
                 // Skip if the user is "me" or already in the friend list
-                if (user === currentUser || friendList.includes(user)) return;
+                if (user == currentUser || friendList.includes(user)) return;
 
                 let option = document.createElement("option");
                 option.value = user; // Set the option's value to the username
@@ -132,12 +132,25 @@ function listUsers() {
 
             inputField.addEventListener("input", function () {
                 let inputValue = inputField.value;
-                if (!data.includes(inputValue) || inputValue === currentUser || friendList.includes(inputValue)) {
-                    addButton.disabled = true; // Disable button if invalid
-                    inputField.style.boxShadow = "inset 0 0 0 5px red";
+                console.log(inputValue.length);
+                // Check if input is empty or invalid
+                if (inputValue.length==0){
+                    addButton.disabled = true; // Enable button
+                    inputField.style.boxShadow = "none"; // No shadow for no input
+                    inputField.style.border="none";
+                }
+                else if (
+                    !data.includes(inputValue) || // Not in user list
+                    inputValue == currentUser || // Current user
+                    friendList.includes(inputValue) // Already a friend
+                ) {
+                    addButton.disabled = true; // Disable button
+                    inputField.style.boxShadow = "inset 0 0 2px red"; // Red shadow for invalid input
+                    inputField.style.border="1px solid red";
                 } else {
-                    addButton.disabled = false; // Enable button if valid
-                    inputField.style.boxShadow = "inset 0 0 0 5px none";
+                    addButton.disabled = false; // Enable button
+                    inputField.style.boxShadow = "none"; // No shadow for valid input
+                    inputField.style.border="none";
                 }
             });
         }
