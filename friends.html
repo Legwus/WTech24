@@ -30,7 +30,7 @@
                 </ol>
                 <hr class="dotted-border">
                 <form class="align-to-the-left" method="post" action="friends.html">
-                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" placeholder="Add a Friend to List" list="friend-selector">
+                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" oninput=listUsers() placeholder="Add a Friend to List" list="friend-selector">
                     <datalist id="friend-selector">
                         <option>Tom</option>
                         <option>Jerry</option>
