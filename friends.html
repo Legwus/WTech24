@@ -30,7 +30,12 @@
                 </ol>
                 <hr class="dotted-border">
                 <form class="align-to-the-left" method="post" action="friends.html">
-                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" placeholder="Add a Friend to List">
+                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" placeholder="Add a Friend to List" list="friend-selector">
+                    <datalist id="friend-selector">
+                        <option>Tom</option>
+                        <option>Jerry</option>
+                        <!-- weitere Einträge -->
+                        </datalist>
                     <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " type="submit" value="Add">
                 </form>
             </div>
