@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Messages</title>
+</head>
+
+<body>
+    <form id="my-form">
+        <input id="check" oninput="checkForm()">
+        <button>Submit</button>
+    </form>
+
+    <script>
+        function checkForm() {
+            var inputValue = document.getElementById('check');
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        console.log("Gleich");
+                        inputValue.style.boxShadow = "inset 0 0 0 2px red";
+                    } else {
+                        console.log("Ungleich");
+                        inputValue.style.boxShadow = "inset 0 0 0 2px green";
+                    }
+                }
+            };
+            xmlhttp.open("GET",
+                "https://online-lectures-cs.thi.de/chat/test/abc/" + inputValue.value, true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+
+</html>

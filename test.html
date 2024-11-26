@@ -3,53 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Chat</title>
-    <link rel="stylesheet" href="test.css">
+    <title>Chat Messages</title>
 </head>
 
 <body>
-    <div>
-        <h1>Adressliste</h1>
-        <p><a href="#">Aktualisieren</a></p>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,sed
-            diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et
-            justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-            ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et
-            justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Vorname</th>
-                    <th>Straße</th>
-                    <th>PLZ</th>
-                    <th>Ort</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Erna</td>
-                    <td>Musterfrau</td>
-                    <td>Musterstrasse 1</td>
-                    <td>12345</td>
-                    <td>Musterstadt</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>Mustermann</td>
-                    <td><a href="#">Neue Musterstrasse 42</a></td>
-                    <td>54321</td>
-                    <td>Musterhausen</td>
-                </tr>
-            </tbody>
-        </table>
-        <div><a href="#">Nach oben</a></div>
-    </div>
+    <div id="list-container"></div>
+
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                if (xmlhttp.status == 200) {
+                    console.log(xmlhttp.responseText);
+
+                    // JSON-Antwort parsen
+                    let data = JSON.parse(xmlhttp.responseText);
+                    console.log(data);
+
+                    // HTML-Liste erzeugen
+                    let listContainer = document.getElementById("list-container");
+                    let ul = document.createElement("ul");
+
+                    // Nachrichten durchlaufen und Listenelemente erzeugen
+                    data.forEach((message) => {
+                        let li = document.createElement("li");
+                        let date = new Date(message.time); // Zeitstempel in lesbares Datum umwandeln
+                        li.innerHTML = `<strong>${message.from}</strong>: ${message.msg} <em>(${date.toLocaleString()})</em>`;
+                        ul.appendChild(li);
+                    });
+
+                    // Liste ins Dokument einfügen
+                    listContainer.appendChild(ul);
+
+                } else {
+                    console.error("Fehler (" + xmlhttp.status + "): " + xmlhttp.responseText);
+                }
+            }
+        };
+
+        xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/test.json", true);
+        xmlhttp.send();
+    </script>
 </body>
 
 </html>
