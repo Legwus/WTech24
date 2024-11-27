@@ -11,7 +11,7 @@
     
     <div class="flex-container arialfont chat">
       <div class="center">
-        <h2 class="align-to-the-left">Chat with Tom</h2>
+        <h2 class="align-to-the-left">Chat with <span id="friendName">Tom</span></h2>
         <div class="megaklasa">
           <p class="align-to-the-left">
             <a href="friends.html"> &lt; Back </a> <span> | </span>
@@ -22,7 +22,7 @@
           <ul class="chatbox" id="chat-container">
           </ul>
           <hr class="dotted-border" />
-          <form class="item-align-to-the-left" method="post" action="chat.html">
+          <form class="item-align-to-the-left" id="chatSendForm">
             <input
               class="big-textfield"
               type="text"
@@ -33,7 +33,7 @@
             <button
               class="friend-add-button nicebutton rounded-corners justbluebkgrd"
               id="sendButton"
-              type="button" disabled
+              type="submit" disabled
               
             >Send</button>
           </form>

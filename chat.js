@@ -6,6 +6,16 @@ let jerry =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
 let token = tom;
 
+const friendName = document.getElementById("friendName");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nameFromQuery = getChatpartner();
+  if (nameFromQuery) {
+    friendName.innerText = nameFromQuery;
+    console.log(nameFromQuery);
+  }
+});
+
 function listMessages() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
@@ -18,9 +28,11 @@ function listMessages() {
       chatbox.scrollTop = chatbox.scrollHeight;
     }
   };
+  const nameFromQuery = getChatpartner();
   xmlhttp.open(
     "GET",
-    "https://online-lectures-cs.thi.de/chat/132d33f2-44cf-45e1-9e85-e9da1b64102b/message/Jerry",
+    "https://online-lectures-cs.thi.de/chat/132d33f2-44cf-45e1-9e85-e9da1b64102b/message/" +
+      nameFromQuery,
     true
   );
   // Add token, e. g., from Tom
@@ -35,7 +47,12 @@ function showMessage(message) {
 listMessages();
 const sendMessage = document.getElementById("sendMessage");
 const sendButton = document.getElementById("sendButton");
-sendButton.addEventListener("click", () => sendMessages());
+const chatSendForm = document.getElementById("chatSendForm");
+chatSendForm.addEventListener("submit", (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  sendMessages();
+});
 sendMessage.addEventListener("input", (event) => {
   const { value } = event.target;
   if (value.length <= 0) {
@@ -51,9 +68,10 @@ function resetInput() {
 
 function sendMessages() {
   //debugger;
+  const nameFromQuery = getChatpartner();
   let data = {
     message: sendMessage.value.trim(),
-    to: "Jerry",
+    to: nameFromQuery,
   };
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
