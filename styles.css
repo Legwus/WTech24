@@ -80,6 +80,7 @@ form .friend-add-button {
 
 .fieldsetstyling input {
     height:22px;
+    
 }
 
 .megaklasa {
@@ -269,6 +270,7 @@ margin-top:0px;
     text-align: right;
     margin-right: 5px;
     
+    
 }
 
 
@@ -322,6 +324,10 @@ fieldset .about-you-textfield {
     text-decoration: none;
     cursor:pointer;
     
+}
+
+.registerButton:hover{
+    background-color: rgb(72, 72, 72);
 }
 
 .nicebutton:disabled {

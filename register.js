@@ -1,3 +1,9 @@
+const passwordField = document.getElementById("password");
+const confirmPasswordField = document.getElementById("confirm_password");
+const usernameField = document.getElementById("username");
+const form = document.getElementById("register_form");
+const registerButton = document.getElementById("register_button");
+
 function checkIfUserExists(userName) {
   var xmlhttp = new XMLHttpRequest();
   var userExists = false;
@@ -22,54 +28,65 @@ function checkIfUserExists(userName) {
   return userExists;
 }
 
-function checkUsernameInputLength() {
-  var inputField = document.getElementById("username");
-  if (inputField.value.length < 3) {
-    inputField.style.borderColor = "red";
-  } else {
-    inputField.style.borderColor = "green";
-  }
-}
+const passwordFieldValidator = (value) => value.length >= 8;
+const confirmPasswordFieldValidator = (value, passwordValue) =>
+  value == passwordValue;
+const usernameFieldValidator = (value) => value.length >= 3;
 
-function checkPasswordInputLength() {
-  var passwordField = document.getElementById("password");
-  if (passwordField.value.length < 8) {
-    passwordField.style.borderColor = "red";
-  } else {
-    passwordField.style.borderColor = "green";
-  }
-}
+passwordField.addEventListener("input", (event) => {
+  checkField(event.target, passwordFieldValidator(event.target.value));
+  checkField(
+    confirmPasswordField,
+    confirmPasswordFieldValidator(usernameField.value, event.target.value)
+  );
+});
 
-function checkPasswordConfirmInputLength() {
-  var inputField = document.getElementById("confirm_password");
-  if (inputField.value.length < 8) {
-    inputField.style.borderColor = "red";
-  } else {
-    inputField.style.borderColor = "green";
-  }
-}
+confirmPasswordField.addEventListener("input", (event) => {
+  checkField(
+    event.target,
+    confirmPasswordFieldValidator(event.target.value, passwordField.value)
+  );
+});
 
-function checkInputValidity() {
-  var usernameField = document.getElementById("username");
-  var passwordField = document.getElementById("password");
-  var confirmPasswordField = document.getElementById("confirm_password");
-  if (usernameField.value.length < 3) {
+usernameField.addEventListener("input", (event) => {
+  checkField(event.target, usernameFieldValidator(event.target.value));
+});
+
+form.addEventListener("input", (event) => {
+  const passwordFieldValid = passwordFieldValidator(passwordField.value);
+  const confirmPasswordFieldValid = confirmPasswordFieldValidator(
+    confirmPasswordField.value,
+    passwordField.value
+  );
+  const usernameFieldValid = usernameFieldValidator(usernameField.value);
+
+  registerButton.disabled = !(
+    passwordFieldValid &&
+    confirmPasswordFieldValid &&
+    usernameFieldValid
+  );
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const userExists = checkIfUserExists(usernameField.value);
+  checkField(usernameField, !userExists);
+
+  if (userExists) {
+    alert("Username already exists.");
+  } else {
+    window.location.href = "friends.html";
+  }
+});
+
+const checkField = (event, validator) => {
+  if (validator) {
+    event.style.borderColor = "green";
+    //passwordField.style.borderColor = "green";
+    return true;
+  } else {
+    event.style.borderColor = "red";
+    // passwordField.style.borderColor = "red";
     return false;
   }
-  if (passwordField.value.length < 8 && confirmPasswordField.value.length < 8) {
-    passwordField.style.borderColor = "red";
-    return false;
-  }
-  if (passwordField.value != confirmPasswordField.value) {
-    confirmPasswordField.style.borderColor = "red";
-    passwordField.style.borderColor = "red";
-    return false;
-  }
-  if (checkIfUserExists(usernameField.value)) {
-    usernameField.style.borderColor = "red";
-    return false;
-  } else if (!checkIfUserExists(usernameField.value)) {
-    usernameField.style.borderColor = "green";
-  }
-  return true;
-}
+};

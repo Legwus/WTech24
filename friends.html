@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <script src="friends.js"></script>
+   
 
     <div class="flex-container arialfont">
         <div class="center">
@@ -19,10 +19,7 @@
                         &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
-                    <li><a href="chat.html">Tom</a> <span class="notification-border"> 3 </span></li>
-                    <li><a href="chat.html">Marvin</a> <span class="notification-border"> 1 </span></li>
-                    <li><a href="chat.html">Tick</a></li>
-                    <li><a href="chat.html">Trick</a></li>
+
                 </ul>
                 <hr class="dotted-border">
                 <h2 class="align-to-the-left"> New Requests </h2>
@@ -38,11 +35,12 @@
                         <option>Jerry</option>
                         <!-- weitere Einträge -->
                         </datalist>
-                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser()">
+                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser(event)">
                 </form>
             </div>
         </div>
     </div>
+    <script src="friends.js"></script>
 </body>
 
 </html>
