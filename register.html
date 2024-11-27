@@ -4,45 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <script src="register.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    
 </head>
 
 <body>
-<div class="flex-container">
-    <img class="default-image" src="./images/user.png" alt="Login page" style="width:100px;height:100px;">
-    <h2>Register yourself</h2>
-    <fieldset>
+    <div class="flex-container arialfont">
+        <div class="center">
+    <img class="default-image-size img-rounded" src="./images/user.png" class="img-rounded" alt="Login page">
+    <h3>Register yourself</h2>
+    <fieldset class="dotted-border fieldsetstyling">
         <legend>Register</legend>
         <form id="registerForm" action="friends.html" method="post" onsubmit="return checkInputValidity();">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" oninput="checkUsernameInputLength()" required><br> <br>
 
+            <label for="password">Password:</label>
 
-            <div class="labels">
-                <label for="username">Username</label>
-                <label for="password">Password</label>
-                <label for="confirm_password">Confirm Password</label>
-            </div>
+            <input type="password" id="password" name="password" oninput="checkPasswordInputLength()" required> <br> <br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" oninput="checkPasswordConfirmInputLength()" required><br><br>
 
-            <div class="inputs">
-            <input type="text" id="username" name="username" oninput="checkUsernameInputLength()" required>
-            <input type="password" id="password" name="password" oninput="checkPasswordInputLength()" required>
-            <input type="password" id="confirm_password" name="confirm_password" oninput="checkPasswordConfirmInputLength()" required>
-            </div>
 
         </form>
-
     </fieldset>
+    <a  class="nicebutton" button href="login.html"  type="button">Cancel</button>
+    </a>
+    <input class="nicebutton justbluebkgrd" type="submit" form="registerForm" value="Register">
+    
 
-    <div class="buttons">
-        <a href="login.html">
-            <button class="nicebutton" type="button">Cancel</button>
-        </a>
-        <input class="submit nicebutton" type="submit" form="registerForm" value="Register">
     </div>
-
-</div>
+    </div>
+<script src="register.js"></script>
 </body>
 
 </html>
