@@ -315,6 +315,7 @@ fieldset .about-you-textfield {
 
 .nicebutton {
     padding:10px;
+    width:100px;
     border:1px;
     display:inline-block;
     margin:5px;
