@@ -144,6 +144,12 @@ form .friend-add-button {
     font-weight: bold;
 }
 
+.chatbox {
+    height:400px;
+    overflow:scroll;
+
+}
+
 .chat .chatbox {
     border: 2px solid rgb(216, 216, 216);
     padding-left:10px;
@@ -265,13 +271,7 @@ margin-top:0px;
     
 }
 
-.testkurwamac {
-    width:150px;
-    white-space: nowrap;
-    display:inline-block;
-    text-align: right;
-    margin-right: 5px;
-}
+
 
 .fieldsetstyling select {
     width:160px;
@@ -309,6 +309,7 @@ fieldset .about-you-textfield {
 
 .nicebutton {
     padding:10px;
+    width:100px;
     border:1px;
     display:inline-block;
     margin:5px;
@@ -323,7 +324,12 @@ fieldset .about-you-textfield {
     
 }
 
-.nicebutton:hover {
+.nicebutton:disabled {
+    cursor:not-allowed;
+    background-color:grey;
+}
+
+.nicebutton:hover:disabled {
     background-color: rgb(72, 72, 72);
 }
 
@@ -339,8 +345,12 @@ fieldset .about-you-textfield {
     background-color: rgb(33, 137, 255);
 }
 
-.justbluebkgrd:hover {
+.justbluebkgrd:hover:enabled {
     background-color: rgb(22, 86, 160);
+}
+
+.justbluebkgrd:disabled {
+    background-color: darkgrey;
 }
 
 .big-textfield {
