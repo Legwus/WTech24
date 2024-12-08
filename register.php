@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php require("start.php"); ?>
+
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
@@ -19,7 +22,7 @@
         <h3>Register yourself</h3>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Register</legend>
-          <form id="register_form">
+          <form id="register_form" action="register.php" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required /><br />
             <br />
