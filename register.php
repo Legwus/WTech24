@@ -4,18 +4,18 @@
 <?php
 require("start.php");
 
-// Validierungen
-$errors = [];
+
 
 
 // Überprüfen, ob das Formular gesendet wurde
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+  // Validierungen
+  $errors = [];
   // Daten aus dem POST-Array abrufen
   $username = isset($_POST['username']) ? trim($_POST['username']) : '';
   $password = isset($_POST['password']) ? $_POST['password'] : '';
   $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
-  var_dump($username, $password, $confirm_password);
+  //var_dump($username, $password, $confirm_password);
 
 
   // Prüfung: Nutzername nicht leer und min. 3 Zeichen
@@ -43,6 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Prüfung: Passwort-Wiederholung stimmt überein
   if ($password !== $confirm_password) {
     $errors[] = "Das Passwort und die Wiederholung stimmen nicht überein.";
+  }
+
+  if (count($errors) == 0) {
+    $res = $service->register($username, $password);
+
+    if ($res) {
+      $_SESSION['user']=$username;
+      header("Location: friends.php");
+    } else {
+      $errors[] = "Error with registering. Try again.";
+    }
   }
 }
 

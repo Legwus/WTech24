@@ -14,26 +14,32 @@ confirmPasswordFieldChecker();
 function checkIfUserExists(userName) {
   var xmlhttp = new XMLHttpRequest();
   var userExists = false;
+
+  // Asynchrone Anfrage statt synchron (true statt false)
   xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4) {
+    if (xmlhttp.readyState == 4) { // Anfrage abgeschlossen
       if (xmlhttp.status == 204) {
         console.log("Username already exists.");
-        userExists = true;
+        userExists = true; // Benutzername existiert
       } else if (xmlhttp.status == 404) {
         console.log("Username available.");
-        userExists = false;
+        userExists = false; // Benutzername verfügbar
+      } else {
+        console.error("Error with the request.");
       }
     }
   };
 
-  var requestUser =
-    "https://online-lectures-cs.thi.de/chat/7c6a5231-9a5a-445c-bc84-6d2bc99600b1/user/" +
-    userName;
-  xmlhttp.open("GET", requestUser, false);
+  // Anfrage an das PHP-Skript 'ajax_check_user.php' mit dem Benutzername als URL-Parameter
+  var requestUser = "ajax_check_user.php?user=" + userName;
+
+  // Asynchrone HTTP-GET-Anfrage an das PHP-Skript
+  xmlhttp.open("GET", requestUser, false); // true = asynchron
   xmlhttp.send();
 
-  return userExists;
+  return userExists; // Gibt zurück, ob der Benutzername existiert oder nicht
 }
+
 
 
 function passwordFieldChecker() {
