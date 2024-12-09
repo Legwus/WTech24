@@ -1,5 +1,5 @@
-let backendUrl = "https://online-lectures-cs.thi.de/chat/ajax_load_messages.php"; // Updated to new endpoint
-let sendMessageUrl = "https://online-lectures-cs.thi.de/chat/ajax_send_message.php"; // Updated to new endpoint
+let loadMessageUrl = "ajax_load_messages.php"; // Updated to new endpoint
+let sendMessageUrl = "ajax_send_message.php"; // Updated to new endpoint
 
 let tom = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
 let jerry = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
@@ -32,7 +32,7 @@ function listMessages() {
   const nameFromQuery = getChatpartner();
   xmlhttp.open(
     "GET",
-    `https://online-lectures-cs.thi.de/chat/ajax_load_messages.php?to=${nameFromQuery}`,
+    `ajax_load_messages.php?to=${nameFromQuery}`,
     true
   );
   xmlhttp.setRequestHeader("Authorization", `Bearer ${token}`);
