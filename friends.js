@@ -48,7 +48,7 @@ function loadFriends() {
           // Add to the accepted friends list
           let li = document.createElement("li");
           let link = document.createElement("a");
-          link.href = "chat.html?friend=" + friend.username;
+          link.href = "chat.php?friend=" + friend.username;
           link.textContent = friend.username;
 
           li.appendChild(link);

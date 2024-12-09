@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+<?php
+require("start.php");
+
+if (!isset($_GET['user'])) {
+  header("Location: login.php");
+}
+
+
+if(!isset($_GET["friend"])) {
+  header("Location: friends.php");
+}
+  
+
+
+
+?>
+
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
@@ -11,7 +30,7 @@
     
     <div class="flex-container arialfont chat">
       <div class="center">
-        <h2 class="align-to-the-left">Chat with <span id="friendName">Tom</span></h2>
+        <h2 class="align-to-the-left">Chat with <span id="friendName"><?= $_GET["friend"] ?>.</span></h2>
         <div class="megaklasa">
           <p class="align-to-the-left">
             <a href="friends.html"> &lt; Back </a> <span> | </span>
