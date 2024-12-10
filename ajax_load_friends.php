@@ -17,4 +17,3 @@ if ($friends) {
  * - 404 Fehler
  */
 http_response_code($friends ? 200 : 404);
-?>

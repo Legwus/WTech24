@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $versions = $user->getVersions();
   $versions[] = date('Y-m-d H:i:s');
   $user->setVersions($versions);
-  $service->saveUser($user);
+  var_dump($service->saveUser($user));
 }
 ?>
 
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="center">
       <h2 class="align-to-the-left">Profile Settings</h2>
 
-      <form id="settingsForm" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+      <form id="settingsForm" method="POST" action="settings.php">
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Base Data</legend>
           <label for="fname"> First Name </label>

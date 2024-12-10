@@ -1,13 +1,16 @@
 <?php
 require("start.php");
 $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
-if (!isset($_SESSION)) {
+if (!isset($_SESSION['user'])) {
     header('Location: login.html');
     exit;
 }
-$service->login("Test1234", "12345678");
+if (isset($_GET['friend'])) {
+    $user = $service->loadUser($_GET['friend']);
+} else {
+    $user = $service->loadUser($_SESSION['user']->getUsername());
+}
 
-$user = $service->loadUser("Test1234");
 $json = json_encode($user);
 //var_dump($user->getCoffeeTea());
 ?>
@@ -28,8 +31,8 @@ $json = json_encode($user);
             <h2 class="align-to-the-left">Profile of Tom</h2>
             <div class="megaklasa">
 
-                <p class="align-to-the-left"><a href="chat.html">
-                        &lt; Back to Chat </a> <span> | </span> <a class="red-link" href="friends.html">Remove Friend</a></p>
+                <p class="align-to-the-left"><a href="chat.php">
+                        &lt; Back to Chat </a> <span> | </span> <?php if (isset($_GET['friend'])) { ?><a class="red-link" href="friends.php">Remove Friend</a> <?php } ?></p>
                 <div class="horizontal-flex">
                     <img class="profile-image-size item-align-to-the-left" src="./images/profile.png" alt="Login page"><br><br>
                     <div class="infobox align-to-the-left">
