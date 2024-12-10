@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $res = $service->register($username, $password);
 
     if ($res) {
-      $_SESSION['user']=$username;
+      $_SESSION['user'] = $username;
       header("Location: friends.php");
     } else {
       $errors[] = "Error with registering. Try again.";
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form id="register_form" action="register.php" method="POST">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username"
-            value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>" oninput="userChecker()"
+            value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>" onchange="userChecker()"
             required /><br />
           <br />
           <label for="password">Password:</label>

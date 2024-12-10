@@ -13,9 +13,9 @@ if (!isset($_SESSION)) {
 
 $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 
-$service->login("Test1234", "12345678");
+// $service->login("Test1234", "12345678");
 
-$user = $service->loadUser("Test1234");
+$user = $service->loadUser($_SESSION['user']->getUsername());
 $json = json_encode($user);
 //var_dump($user->getCoffeeTea());
 ?>
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </fieldset>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
-
+          <?php var_dump($user) ?>
 
           <textarea
 
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <input type="radio" id="sepline" name="radio" value="0" <?php if ($user->getRadio() == false) echo 'checked'; ?> />Username and message in separated lines
         </fieldset>
 
-        <a class="a-button" href="friends.html">
+        <a class="a-button" href="friends.php">
           <button class="nicebutton" type="button">Cancel</button>
         </a>
 
