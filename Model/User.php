@@ -1,6 +1,8 @@
 <?php
 
+
 namespace Model;
+
 
 use JsonSerializable;
 
@@ -100,11 +102,14 @@ class User implements JsonSerializable
     }
 
 
+
     public function jsonSerialize(): mixed
     {
         return get_object_vars($this);
     }
 
+    public static function fromJson(object $data): self
+    {
     public static function fromJson(object $data): self
     {
         // Erstelle eine neue Instanz mit einem leeren Namen
