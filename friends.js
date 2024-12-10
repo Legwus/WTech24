@@ -2,8 +2,6 @@
 
 // Read the token from the text file
 
-let backendUrl =
-  "https://online-lectures-cs.thi.de/chat/132d33f2-44cf-45e1-9e85-e9da1b64102b";
 let tom =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
 let jerry =
@@ -88,7 +86,8 @@ function loadFriends() {
       });
     }
   };
-  xmlhttp.open("GET", backendUrl + "/friend", true);
+
+  xmlhttp.open("GET", "ajax_load_friends.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   xmlhttp.send();
@@ -160,7 +159,7 @@ function listUsers() {
     }
   };
 
-  xmlhttp.open("GET", backendUrl + "/user", true);
+  xmlhttp.open("GET", "ajax_load_friends.php", true);
   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   xmlhttp.send();
 }
@@ -174,7 +173,7 @@ function addUser(event) {
       console.log("Requested...");
     }
   };
-  xmlhttp.open("POST", backendUrl + "/friend", true);
+  xmlhttp.open("POST", "ajax_load_friends.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   let data = {

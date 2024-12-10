@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php
+    require("start.php");
+    if(!isset($_SESSION['user'])) {
+        header("Location: login.html");
+    }
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Page</title>
+</head>
+
+<body>
+   
+
+    <div class="flex-container arialfont">
+        <div class="center">
+            <h2 class="align-to-the-left">Friends</h2>
+            <div class="megaklasa">
+                <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
+                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
+                <hr class="dotted-border">
+                <ul class="friendlist" id="friendList">
+
+                </ul>
+                <hr class="dotted-border">
+                <h2 class="align-to-the-left"> New Requests </h2>
+                <ol id="friendRequestList">
+                    <li class="align-to-the-left">Friend Request from <strong> Track </strong> <button class="nicebutton rounded-corners justbluebkgrd"> Accept </button> <button class="nicebutton rounded-corners "> Reject</button>
+                    </li>
+                </ol>
+                <hr class="dotted-border">
+                <form class="align-to-the-left" method="post" action="friends.html">
+                    <input class="big-textfield" type="text" id="addFriend" name="addFriend" oninput="listUsers()" onclick="listUsers()" placeholder="Add a Friend to List" list="friend-selector">
+                    <datalist id="friend-selector">
+                        <option>Tom</option>
+                        <option>Jerry</option>
+                        <!-- weitere Einträge -->
+                        </datalist>
+                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser(event)">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="friends.js"></script>
+</body>
+
+</html>
