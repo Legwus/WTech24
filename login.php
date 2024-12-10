@@ -5,8 +5,6 @@
         header("Location: friends.html");
     }
 
-    $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = $_POST['username'];
         $password = $_POST['password'];

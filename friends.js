@@ -1,21 +1,22 @@
 // ["Tom", "Jerry", "Tick", "Trick", "Truck", "Micky", "Donald", "Marvin"]
 
 // Read the token from the text file
+let currentUser = "";
+let token = "";
 
-let tom =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
-let jerry =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
-
-let token = jerry;
 window.setInterval(function () {
   loadFriends();
 }, 1000);
 
 loadFriends();
+getCurrentUser();
 
 function acceptFriend(userName) {
   console.log("Accepting friend request from " + userName);
+  var requestUser = "ajax_accept_friend.php?friendname=" + userName;
+
+  xmlhttp.open("GET", requestUser, false);
+  xmlhttp.send();
 }
 
 function rejectFriend(userName) {
@@ -27,6 +28,7 @@ function loadFriends() {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       let data = JSON.parse(xmlhttp.responseText);
+      console.log("loadFriends: ");
       console.log(data);
 
       // Get the friend list containers
@@ -89,7 +91,6 @@ function loadFriends() {
 
   xmlhttp.open("GET", "ajax_load_friends.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   xmlhttp.send();
 }
 
@@ -98,6 +99,7 @@ function listUsers() {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      console.log("listUsers: ");
       console.log(data);
 
       // Get the datalist element
@@ -112,13 +114,12 @@ function listUsers() {
       ).map((friend) => friend.textContent); // Extract usernames from friend list
 
       // Current username (derived from the token)
-      let currentUser = "";
-      if (token == tom) {
+      /*if (token == tom) {
         currentUser = "Tom";
       }
       if (token == jerry) {
         currentUser = "Jerry";
-      }
+      }*/
 
       // Add options to the datalist and handle validation
       data.forEach(function (user) {
@@ -159,28 +160,54 @@ function listUsers() {
     }
   };
 
-  xmlhttp.open("GET", "ajax_load_friends.php", true);
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  xmlhttp.open("GET", "ajax_load_users.php", true);
+  xmlhttp.send();
+}
+
+function getCurrentUser() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    let data = JSON.parse(xmlhttp.responseText); // User list from backend
+    currentUser = data.user;
+    console.log(currentUser);
+    }
+  }
+  xmlhttp.open("GET", "ajax_get_current_user.php", true);
+  xmlhttp.send();
+}
+
+function getCurrentToken() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    let data = JSON.parse(xmlhttp.responseText); // User list from backend
+    token = data.chat_token;
+    console.log(token);
+    }
+  }
+  xmlhttp.open("GET", "ajax_get_current_token.php", true);
   xmlhttp.send();
 }
 
 function addUser(event) {
   event.preventDefault(); // Prevent page refresh
-
+  
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
+    console.log("State: " + xmlhttp.readyState);
+    console.log("Status: " + xmlhttp.status);
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
       console.log("Requested...");
     }
   };
-  xmlhttp.open("POST", "ajax_load_friends.php", true);
+  xmlhttp.open("POST", "ajax_send_friendrequest.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  xmlhttp.setRequestHeader("Authorization", `Bearer ` + getCurrentToken());
   let data = {
     username: document.getElementById("addFriend").value,
   };
-
-  console.log(data);
+  
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   xmlhttp.send(jsonString);

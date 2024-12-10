@@ -7,6 +7,16 @@
     if(!isset($_SESSION['user'])) {
         header("Location: login.html");
     }
+
+    /*if($_GET["action"] === "accept-friend" && isset($_GET["name"])) {
+        var_dump("Ja moin");
+        $service->friendDismiss($_GET["name"]);
+        exit();
+    } else if($_GET["action"] === "reject-friend") {
+        var_dump("Ja moin");
+        $service->friendAccept($_GET["name"]);
+        exit();
+    }*/
 ?>
 
 
@@ -18,28 +28,23 @@
 </head>
 
 <body>
-   
-
     <div class="flex-container arialfont">
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
+            <?php var_dump($_SESSION); ?>
             <div class="megaklasa">
                 <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
                         &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
-
+                    
                 </ul>
                 <hr class="dotted-border">
                 <h2 class="align-to-the-left"> New Requests </h2>
                 <ol id="friendRequestList">
-                    <li class="align-to-the-left">Friend Request from <strong> Track </strong> <button class="nicebutton rounded-corners justbluebkgrd"> Accept </button> <button class="nicebutton rounded-corners "> Reject</button>
-                    </li>
                 </ol>
                 <hr class="dotted-border">
-
                 <form class="align-to-the-left" method="post" action="friends.html">
-
                     <input class="big-textfield" type="text" id="addFriend" name="addFriend" oninput="listUsers()" onclick="listUsers()" placeholder="Add a Friend to List" list="friend-selector">
                     <datalist id="friend-selector">
                         <option>Tom</option>
