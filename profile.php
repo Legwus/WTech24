@@ -32,7 +32,7 @@ $json = json_encode($user);
             <div class="megaklasa">
 
                 <p class="align-to-the-left"><a href="chat.php">
-                        &lt; Back to Chat </a> <span> | </span> <?php if (isset($_GET['friend'])) { ?><a class="red-link" href="friends.php">Remove Friend</a> <?php } ?></p>
+                        &lt; Back to Chat </a> <span> | </span> <?php if (isset($_GET['friend'])) { ?><a class="red-link" href="friends.php?removeFriend=<?php echo $_GET['friend'] ?>">Remove Friend</a> <?php } ?></p>
                 <div class="horizontal-flex">
                     <img class="profile-image-size item-align-to-the-left" src="./images/profile.png" alt="Login page"><br><br>
                     <div class="infobox align-to-the-left">
