@@ -4,89 +4,123 @@ const usernameField = document.getElementById("username");
 const form = document.getElementById("register_form");
 const registerButton = document.getElementById("register_button");
 
+
+
+userChecker();
+passwordFieldChecker();
+confirmPasswordFieldChecker();
+
+
 function checkIfUserExists(userName) {
   var xmlhttp = new XMLHttpRequest();
   var userExists = false;
+
+  // Asynchrone Anfrage statt synchron (true statt false)
   xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4) {
+    if (xmlhttp.readyState == 4) { // Anfrage abgeschlossen
       if (xmlhttp.status == 204) {
         console.log("Username already exists.");
-        userExists = true;
+        userExists = true; // Benutzername existiert
       } else if (xmlhttp.status == 404) {
         console.log("Username available.");
-        userExists = false;
+        userExists = false; // Benutzername verfügbar
+      } else {
+        console.error("Error with the request.");
       }
     }
   };
 
-  var requestUser =
-    "https://online-lectures-cs.thi.de/chat/7c6a5231-9a5a-445c-bc84-6d2bc99600b1/user/" +
-    userName;
-  xmlhttp.open("GET", requestUser, false);
+  // Anfrage an das PHP-Skript 'ajax_check_user.php' mit dem Benutzername als URL-Parameter
+  var requestUser = "ajax_check_user.php?user=" + userName;
+
+  // Asynchrone HTTP-GET-Anfrage an das PHP-Skript
+  xmlhttp.open("GET", requestUser, false); // true = asynchron
   xmlhttp.send();
 
-  return userExists;
+  return userExists; // Gibt zurück, ob der Benutzername existiert oder nicht
 }
 
-const passwordFieldValidator = (value) => value.length >= 8;
-const confirmPasswordFieldValidator = (value, passwordValue) =>
-  value == passwordValue;
-const usernameFieldValidator = (value) => value.length >= 3;
 
-passwordField.addEventListener("input", (event) => {
-  checkField(event.target, passwordFieldValidator(event.target.value));
-  checkField(
-    confirmPasswordField,
-    confirmPasswordFieldValidator(usernameField.value, event.target.value)
-  );
-});
 
-confirmPasswordField.addEventListener("input", (event) => {
-  checkField(
-    event.target,
-    confirmPasswordFieldValidator(event.target.value, passwordField.value)
-  );
-});
+function passwordFieldChecker() {
 
-usernameField.addEventListener("input", (event) => {
-  checkField(event.target, usernameFieldValidator(event.target.value));
-});
+  const pw = passwordField.value;
+  if (pw.length == 0) {
+    passwordField.style.borderColor = "black";
+    passwordField.style.backgroundColor = "white"
+  } else {
+    if (pw.length < 8) {
+      passwordField.style.borderColor = "red";
+      passwordField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+    } else {
+      passwordField.style.borderColor = "green";
+      passwordField.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
+    }
 
-form.addEventListener("input", (event) => {
-  const passwordFieldValid = passwordFieldValidator(passwordField.value);
-  const confirmPasswordFieldValid = confirmPasswordFieldValidator(
-    confirmPasswordField.value,
-    passwordField.value
-  );
-  const usernameFieldValid = usernameFieldValidator(usernameField.value);
+  }
+}
 
-  registerButton.disabled = !(
-    passwordFieldValid &&
-    confirmPasswordFieldValid &&
-    usernameFieldValid
-  );
-});
+function confirmPasswordFieldChecker() {
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  const pw = passwordField.value;
+  const pwc = confirmPasswordField.value
+
+
+  if (pwc.length == 0) {
+    confirmPasswordField.style.borderColor = "black";
+    confirmPasswordField.style.backgroundColor = "white"
+  } else {
+
+    if (pwc.length < 8 || pwc != pw) {
+      confirmPasswordField.style.borderColor = "red";
+      confirmPasswordField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+    } else {
+      confirmPasswordField.style.borderColor = "green";
+      confirmPasswordField.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
+    }
+
+  }
+}
+
+
+/*
+registerButton.disabled = !(
+  passwordFieldChecker() &&
+  confirmPasswordFieldChecker() &&
+  userChecker()
+);
+*/
+
+
+
+function userChecker() {
   const userExists = checkIfUserExists(usernameField.value);
-  checkField(usernameField, !userExists);
 
-  if (userExists) {
-    alert("Username already exists.");
+  if (usernameField.value.length == 0) {
+    usernameField.style.borderColor = "black";
+    usernameField.style.backgroundColor = "white"
   } else {
-    window.location.href = "friends.html";
-  }
-});
 
-const checkField = (event, validator) => {
-  if (validator) {
-    event.style.borderColor = "green";
-    //passwordField.style.borderColor = "green";
-    return true;
-  } else {
-    event.style.borderColor = "red";
-    // passwordField.style.borderColor = "red";
-    return false;
+
+    if (usernameField.value.length >= 3) {
+
+      if (userExists) {
+        usernameField.style.borderColor = "red";
+        usernameField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+        //passwordField.style.borderColor = "green";
+        return false;
+      } else {
+        usernameField.style.borderColor = "green";
+        usernameField.style.backgroundColor = "rgba(144, 238, 144, 0.5)"; // Light green with 50% transparency
+
+        // passwordField.style.borderColor = "red";
+        return true;
+      }
+    } else {
+      usernameField.style.borderColor = "red";
+      usernameField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+      //passwordField.style.borderColor = "green";
+      return false;
+    }
   }
-};
+}

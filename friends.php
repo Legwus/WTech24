@@ -28,7 +28,7 @@
                     </li>
                 </ol>
                 <hr class="dotted-border">
-                <form class="align-to-the-left" method="post" action="friends.html">
+                <form class="align-to-the-left" method="post" action="friends.php">
                     <input class="big-textfield" type="text" id="addFriend" name="addFriend" oninput="listUsers()" onclick="listUsers()" placeholder="Add a Friend to List" list="friend-selector">
                     <datalist id="friend-selector">
                         <option>Tom</option>
