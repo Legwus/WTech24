@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<?php
+    require("start.php");
+    session_unset();
+?>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="flex-container arialfont">
+        <div class="center">
+    <img class="default-image-size img-rounded" src="./images/logout.png" class="img-rounded" alt="Login page" >
+    <h3>Logged out...</h3>
+    <p class="megaklasa"> See u! </p>
+    <p class="megaklasa" ><a class="megaklasa"  href="login.html">Login again</a></p>
+</div>
+</div>
+</body>
+</html>
+
