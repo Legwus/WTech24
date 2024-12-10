@@ -3,10 +3,10 @@
 
 
 <?php
-    require("start.php");
-    if(!isset($_SESSION['user'])) {
-        header("Location: login.html");
-    }
+require("start.php");
+if (!isset($_SESSION['user'])) {
+    header("Location: login.html");
+}
 ?>
 
 
@@ -18,14 +18,14 @@
 </head>
 
 <body>
-   
+    <?php var_dump($_SESSION['user']); ?>
 
     <div class="flex-container arialfont">
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
             <div class="megaklasa">
                 <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
-                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
+                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.php">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
 
@@ -45,7 +45,7 @@
                         <option>Tom</option>
                         <option>Jerry</option>
                         <!-- weitere Einträge -->
-                        </datalist>
+                    </datalist>
                     <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser(event)">
                 </form>
             </div>
