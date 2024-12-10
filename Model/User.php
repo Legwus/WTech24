@@ -7,6 +7,7 @@ use JsonSerializable;
 class User implements JsonSerializable
 {
     private string $name;
+    private string $username;
     private string $fname;
     private string $surname;
     private string $coffeeTea;
