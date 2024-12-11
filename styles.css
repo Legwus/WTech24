@@ -217,9 +217,7 @@ margin-top:0px;
     border: 2px solid rgb(216, 216, 216);
     padding-left:10px;
     padding-right:30px;
-    width:100%;
-    max-width: 435px;
-
+   max-width:435px;
     list-style: none;
     text-align: start; 
     background: white;

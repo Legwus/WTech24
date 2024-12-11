@@ -6,7 +6,7 @@
 require("start.php");
 
 if (!isset($_SESSION['user'])) {
-  header("Location: login.html");
+  header("Location: login.php");
 }
 
 
