@@ -3,12 +3,12 @@
 
 
 <?php
-    require("start.php");
-    if(!isset($_SESSION['user'])) {
-        header("Location: login.html");
-    }
+require("start.php");
+if (!isset($_SESSION['user'])) {
+    header("Location: login.html");
+}
 
-    /*if($_GET["action"] === "accept-friend" && isset($_GET["name"])) {
+/*if($_GET["action"] === "accept-friend" && isset($_GET["name"])) {
         var_dump("Ja moin");
         $service->friendDismiss($_GET["name"]);
         exit();
@@ -31,13 +31,13 @@
     <div class="flex-container arialfont">
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
-            <?php var_dump($_SESSION); ?>
+            <?php var_dump($_GET['friend']); ?>
             <div class="megaklasa">
                 <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
                         &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
-                    
+                    <?php include "ajax_load_friends.php"; ?>
                 </ul>
                 <hr class="dotted-border">
                 <h2 class="align-to-the-left"> New Requests </h2>
@@ -50,7 +50,7 @@
                         <option>Tom</option>
                         <option>Jerry</option>
                         <!-- weitere Einträge -->
-                        </datalist>
+                    </datalist>
                     <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser(event)">
                 </form>
             </div>
