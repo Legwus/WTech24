@@ -48,7 +48,9 @@ echo <<<EOL
 
             let jsonString = JSON.stringify(data);
             xmlhttp.send(jsonString);
+               setTimeout(() => {
             window.location.reload();
+        }, 1000);
         }
     </script>
 EOL;

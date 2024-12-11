@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: friends.php");
     } else {
         echo "<script type='text/javascript'>alert('Invalid username or password');</script>";
-        header("Location: login.html");
+        header("Location: login.php");
     }
 }
 ?>

@@ -61,7 +61,10 @@ echo <<<EOL
         let jsonString = JSON.stringify(data);
         console.log(jsonString);
         xmlhttp.send(jsonString);
-        window.location.reload();
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+        
     });
 
     document.getElementById("addFriend").addEventListener("input", (event)=> {

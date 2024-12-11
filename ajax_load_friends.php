@@ -8,7 +8,7 @@ if ($friends) {
     echo '<ul id="friendList">';
     foreach ($friends as $friend) {
         if ($friend->getStatus() === 'accepted') {
-            var_dump($friend);
+
             echo '<li>';
             echo '<a href="chat.html?friend=' . htmlspecialchars($friend->getUsername()) . '">';
             echo htmlspecialchars($friend->getUsername());

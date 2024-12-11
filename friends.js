@@ -70,16 +70,16 @@ function loadFriends() {
       });
     }
   };
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "ajax_load_friends.php", true);
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      console.log("Response from PHP:", xhr.responseText);
-    } else {
-      console.error("Error:", xhr.statusText);
-    }
-  };
-  xhr.send();
+  // const xhr = new XMLHttpRequest();
+  // xhr.open("GET", "ajax_load_friends.php", true);
+  // xhr.onload = function () {
+  //   if (xhr.status === 200) {
+  //     console.log("Response from PHP:", xhr.responseText);
+  //   } else {
+  //     console.error("Error:", xhr.statusText);
+  //   }
+  // };
+  // xhr.send();
   // xmlhttp.open("GET", backendUrl + "/friend", true);
   // xmlhttp.setRequestHeader("Content-type", "application/json");
   // xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
@@ -172,6 +172,7 @@ function addUser() {
   };
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
+  alert("chuj");
   xmlhttp.send(jsonString);
 }
 
