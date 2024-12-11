@@ -1,3 +1,4 @@
+
 <?php
 require("start.php");
 if (!isset($_SESSION['user'])) {
@@ -39,5 +40,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 </body>
+
 
 </html>

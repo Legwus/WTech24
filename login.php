@@ -2,13 +2,16 @@
 require("start.php");
 
 if (isset($_SESSION['user'])) {
+
     header("Location: friends.php");
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['username'];
     $password = $_POST['password'];
     if ($service->login($name, $password)) {
+
         $_SESSION['user'] = $name;
         header("Location: friends.php");
     } else {
@@ -51,3 +54,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+
