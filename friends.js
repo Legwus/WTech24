@@ -95,91 +95,91 @@ function loadFriends() {
   // xmlhttp.send();
 }
 
-// function listUsers() {
-//   let xmlhttp = new XMLHttpRequest();
-//   xmlhttp.onreadystatechange = function () {
-//     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//       let data = JSON.parse(xmlhttp.responseText); // User list from backend
-//       console.log(data);
+function listUsers() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      console.log(data);
 
-//       // Get the datalist element
-//       let dataList = document.getElementById("friend-selector");
+      // Get the datalist element
+      let dataList = document.getElementById("friend-selector");
 
-//       // Clear existing options
-//       dataList.innerHTML = "";
+      // Clear existing options
+      dataList.innerHTML = "";
 
-//       // Get the friend list for validation
-//       let friendList = Array.from(
-//         document.getElementById("friendList").getElementsByTagName("a")
-//       ).map((friend) => friend.textContent); // Extract usernames from friend list
+      // Get the friend list for validation
+      let friendList = Array.from(
+        document.getElementById("friendList").getElementsByTagName("a")
+      ).map((friend) => friend.textContent); // Extract usernames from friend list
 
-//       // Current username (derived from the token)
-//       let currentUser = "";
-//       if (token == tom) {
-//         currentUser = "Tom";
-//       }
-//       if (token == jerry) {
-//         currentUser = "Jerry";
-//       }
+      // Current username (derived from the token)
+      let currentUser = "";
+      if (token == tom) {
+        currentUser = "Tom";
+      }
+      if (token == jerry) {
+        currentUser = "Jerry";
+      }
 
-//       // Add options to the datalist and handle validation
-//       data.forEach(function (user) {
-//         // Skip if the user is "me" or already in the friend list
-//         if (user == currentUser || friendList.includes(user)) return;
+      // Add options to the datalist and handle validation
+      data.forEach(function (user) {
+        // Skip if the user is "me" or already in the friend list
+        if (user == currentUser || friendList.includes(user)) return;
 
-//         let option = document.createElement("option");
-//         option.value = user; // Set the option's value to the username
-//         dataList.appendChild(option);
-//       });
+        let option = document.createElement("option");
+        option.value = user; // Set the option's value to the username
+        dataList.appendChild(option);
+      });
 
-//       // Handle Add Friend button state based on input
-//       let inputField = document.getElementById("addFriend");
-//       let addButton = document.getElementById("addButton");
+      // Handle Add Friend button state based on input
+      let inputField = document.getElementById("addFriend");
+      let addButton = document.getElementById("addButton");
 
-//       inputField.addEventListener("input", function () {
-//         let inputValue = inputField.value;
-//         console.log(inputValue.length);
-//         // Check if input is empty or invalid
-//         if (inputValue.length == 0) {
-//           addButton.disabled = true; // Enable button
-//           inputField.style.boxShadow = "none"; // No shadow for no input
-//           inputField.style.border = "none";
-//         } else if (
-//           !data.includes(inputValue) || // Not in user list
-//           inputValue == currentUser || // Current user
-//           friendList.includes(inputValue) // Already a friend
-//         ) {
-//           addButton.disabled = true; // Disable button
-//           inputField.style.boxShadow = "inset 0 0 2px red"; // Red shadow for invalid input
-//           inputField.style.border = "1px solid red";
-//         } else {
-//           addButton.disabled = false; // Enable button
-//           inputField.style.boxShadow = "none"; // No shadow for valid input
-//           inputField.style.border = "none";
-//         }
-//       });
-//     }
-//   };
+      inputField.addEventListener("input", function () {
+        let inputValue = inputField.value;
+        console.log(inputValue.length);
+        // Check if input is empty or invalid
+        if (inputValue.length == 0) {
+          addButton.disabled = true; // Enable button
+          inputField.style.boxShadow = "none"; // No shadow for no input
+          inputField.style.border = "none";
+        } else if (
+          !data.includes(inputValue) || // Not in user list
+          inputValue == currentUser || // Current user
+          friendList.includes(inputValue) // Already a friend
+        ) {
+          addButton.disabled = true; // Disable button
+          inputField.style.boxShadow = "inset 0 0 2px red"; // Red shadow for invalid input
+          inputField.style.border = "1px solid red";
+        } else {
+          addButton.disabled = false; // Enable button
+          inputField.style.boxShadow = "none"; // No shadow for valid input
+          inputField.style.border = "none";
+        }
+      });
+    }
+  };
 
-//   xmlhttp.open("GET", backendUrl + "/user", true);
-//   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
-//   xmlhttp.send();
-// }
+  xmlhttp.open("GET", backendUrl + "/user", true);
+  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  xmlhttp.send();
+}
 
-// function addUser() {
-//   let xmlhttp = new XMLHttpRequest();
-//   xmlhttp.onreadystatechange = function () {
-//     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-//       console.log("Requested...");
-//     }
-//   };
-//   xmlhttp.open("POST", backendUrl + "/friend", true);
-//   xmlhttp.setRequestHeader("Content-type", "application/json");
-//   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
-//   let data = {
-//     username: document.getElementById("addFriend").value,
-//   };
-//   let jsonString = JSON.stringify(data);
-//   console.log(jsonString);
-//   xmlhttp.send(jsonString);
-// }
+function addUser() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+      console.log("Requested...");
+    }
+  };
+  xmlhttp.open("POST", backendUrl + "/friend", true);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  let data = {
+    username: document.getElementById("addFriend").value,
+  };
+  let jsonString = JSON.stringify(data);
+  console.log(jsonString);
+  xmlhttp.send(jsonString);
+}

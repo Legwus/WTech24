@@ -3,10 +3,10 @@
 
 
 <?php
-require("start.php");
-if (!isset($_SESSION['user'])) {
-    header("Location: login.html");
-}
+// require("start.php");
+// if (!isset($_SESSION['user'])) {
+//     header("Location: login.html");
+// }
 
 /*if($_GET["action"] === "accept-friend" && isset($_GET["name"])) {
         var_dump("Ja moin");
@@ -31,7 +31,8 @@ if (!isset($_SESSION['user'])) {
     <div class="flex-container arialfont">
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
-            <?php var_dump($_GET['friend']); ?>
+            <?php //var_dump($_GET['friend']); 
+            ?>
             <div class="megaklasa">
                 <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
                         &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>

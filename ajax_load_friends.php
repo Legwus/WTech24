@@ -21,13 +21,13 @@ if ($friends) {
     // Generate HTML output for friends
     echo '<ul id="friendList">';
     foreach ($friends as $friend) {
-        if ($friend['status'] === 'accepted') {
+        if ($friend->getStatus() === 'accepted') {
             echo '<li>';
-            echo '<a href="chat.html?friend=' . htmlspecialchars($friend['username']) . '">';
-            echo htmlspecialchars($friend['username']);
+            echo '<a href="chat.html?friend=' . htmlspecialchars($friend->getUsername()) . '">';
+            echo htmlspecialchars($friend->getUsername());
             echo '</a>';
-            if ($friend['unread'] > 0) {
-                echo '<span class="notification-border">' . htmlspecialchars($friend['unread']) . '</span>';
+            if ($friend->getUnread() > 0) {
+                echo '<span class="notification-border">' . htmlspecialchars($friend->getUnread()) . '</span>';
             }
             echo '</li>';
         }
@@ -37,11 +37,11 @@ if ($friends) {
     // Generate HTML output for friend requests
     echo '<ul id="friendRequestList">';
     foreach ($friends as $friend) {
-        if ($friend['status'] === 'requested') {
+        if ($friend->getStatus() === 'requested') {
             echo '<li class="align-to-the-left">';
-            echo 'Friend Request from <strong>' . htmlspecialchars($friend['username']) . '</strong>';
-            echo '<button class="nicebutton rounded-corners justbluebkgrd" onclick="acceptFriend(\'' . htmlspecialchars($friend['username']) . '\')">Accept</button>';
-            echo '<button class="nicebutton rounded-corners" onclick="rejectFriend(\'' . htmlspecialchars($friend['username']) . '\')">Reject</button>';
+            echo 'Friend Request from <strong>' . htmlspecialchars($friend->getUsername()) . '</strong>';
+            echo '<button class="nicebutton rounded-corners justbluebkgrd" onclick="acceptFriend(\'' . htmlspecialchars($friend->getUsername()) . '\')">Accept</button>';
+            echo '<button class="nicebutton rounded-corners" onclick="rejectFriend(\'' . htmlspecialchars($friend->getUsername()) . '\')">Reject</button>';
             echo '</li>';
         }
     }
