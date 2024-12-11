@@ -6,7 +6,7 @@ let token = "";
 
 window.setInterval(function () {
   loadFriends();
-}, 1000);
+}, 10000);
 
 loadFriends();
 getCurrentUser();
