@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -124,4 +123,3 @@ class User implements JsonSerializable
         return $user;
     }
 }
-
