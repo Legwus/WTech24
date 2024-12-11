@@ -1,14 +1,5 @@
 // ["Tom", "Jerry", "Tick", "Trick", "Truck", "Micky", "Donald", "Marvin"]
 
-var backendUrl =
-  "https://online-lectures-cs.thi.de/chat/fe8c514e-c64a-4283-8b26-fee9ce7c70b5";
-var tom =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNDU2NTMyfQ.hzuLqwOEsdImd3mkH2YHEYbo6c68F7JoIfiG7HvBGsg";
-var jerry =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI0NTY1MzJ9.L_N8uCDkg1D-ODQCvePqZ-n3rNO0cuH3dOviwsX_ul0";
-
-var token = tom;
-
 window.setInterval(function () {
   loadFriends();
 }, 10000);
@@ -182,4 +173,8 @@ function addUser() {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   xmlhttp.send(jsonString);
+}
+
+function rejectFriend(friend) {
+  console.log(friend);
 }
