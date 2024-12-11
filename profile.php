@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 if (isset($_GET['friend'])) {
     $user = $service->loadUser($_GET['friend']);
 } else {
-    $user = $service->loadUser($_SESSION['user']->getUsername());
+    $user = $service->loadUser($_SESSION['user']);
 }
 
 $json = json_encode($user);

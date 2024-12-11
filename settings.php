@@ -15,7 +15,7 @@ $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 
 // $service->login("Test1234", "12345678");
 
-$user = $service->loadUser($_SESSION['user']->getUsername());
+$user = $service->loadUser($_SESSION['user']);
 $json = json_encode($user);
 //var_dump($user->getCoffeeTea());
 ?>
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $versions = $user->getVersions();
   $versions[] = date('Y-m-d H:i:s');
   $user->setVersions($versions);
-  var_dump($service->saveUser($user));
+  //var_dump($service->saveUser($user));
 }
 ?>
 
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </fieldset>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
-          <?php var_dump($user) ?>
+
 
           <textarea
 
