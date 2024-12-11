@@ -13,15 +13,44 @@ getCurrentUser();
 
 function acceptFriend(userName) {
   console.log("Accepting friend request from " + userName);
-  var requestUser = "ajax_accept_friend.php?friendname=" + userName;
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText);
+      console.log("response: ");
+      console.log(data);
 
-  xmlhttp.open("GET", requestUser, false);
-  xmlhttp.send();
+     
+      console.log("sending request"); 
+       }
+  }; 
+      var requestUser = "ajax_accept_friend.php?friendname=" + userName;
+      xmlhttp.open("GET", requestUser, true);
+      xmlhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send();
+
 }
 
 function rejectFriend(userName) {
   console.log("Reject friend request from " + userName);
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText);
+      console.log("response: ");
+      console.log(data);
+
+     
+      console.log("sending request"); 
+       }
+  }; 
+      var requestUser = "ajax_decline_friend.php?friendname=" + userName;
+      xmlhttp.open("GET", requestUser, true);
+      xmlhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send();
+
 }
+
 
 function loadFriends() {
   let xmlhttp = new XMLHttpRequest();
@@ -167,10 +196,10 @@ function listUsers() {
 function getCurrentUser() {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-    let data = JSON.parse(xmlhttp.responseText); // User list from backend
-    currentUser = data.user;
-    console.log(currentUser);
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      currentUser = data.user;
+      console.log(currentUser);
     }
   }
   xmlhttp.open("GET", "ajax_get_current_user.php", true);
@@ -180,10 +209,10 @@ function getCurrentUser() {
 function getCurrentToken() {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-    let data = JSON.parse(xmlhttp.responseText); // User list from backend
-    token = data.chat_token;
-    console.log(token);
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      token = data.chat_token;
+      console.log(token);
     }
   }
   xmlhttp.open("GET", "ajax_get_current_token.php", true);
@@ -192,7 +221,7 @@ function getCurrentToken() {
 
 function addUser(event) {
   event.preventDefault(); // Prevent page refresh
-  
+
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     console.log("State: " + xmlhttp.readyState);
@@ -201,13 +230,12 @@ function addUser(event) {
       console.log("Requested...");
     }
   };
-  xmlhttp.open("POST", "ajax_send_friendrequest.php", true);
+  xmlhttp.open("POST", "ajax_send_friendrequest.php", false);
   xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", `Bearer ` + getCurrentToken());
   let data = {
     username: document.getElementById("addFriend").value,
   };
-  
+
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   xmlhttp.send(jsonString);

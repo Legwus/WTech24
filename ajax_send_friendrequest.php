@@ -5,16 +5,16 @@ require "start.php";
 
 if (!isset($_POST['username'])) {
     http_response_code(401); // not authorized
-    var_dump($_POST);
+    //var_dump($_POST);
     return;
 } else {
   
 }
-
+//+ $_POST['username']
 // Backend aufrufen
-$response = $service->friendRequest($_POST['username']);
+$response = $service->friendRequest(array("username" => "Tom"));
 if ($response) {
-    // erhaltene Friend-Objekte im JSON-Format senden 
+    var_dump($response);	
     
 } else {
   

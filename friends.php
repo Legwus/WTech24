@@ -17,6 +17,16 @@
         $service->friendAccept($_GET["name"]);
         exit();
     }*/
+
+    if(isset($_POST) && ($_SERVER['REQUEST_METHOD'] === 'POST')) {
+        var_dump(array("username" => $_POST["addFriend"]));
+        $service->friendRequest(array("username" => $_POST["addFriend"]));
+        //exit();
+        
+    } 
+
+
+
 ?>
 
 
@@ -44,14 +54,15 @@
                 <ol id="friendRequestList">
                 </ol>
                 <hr class="dotted-border">
-                <form class="align-to-the-left" method="post" action="friends.html">
+                <form class="align-to-the-left" method="post" action="friends.php">
                     <input class="big-textfield" type="text" id="addFriend" name="addFriend" oninput="listUsers()" onclick="listUsers()" placeholder="Add a Friend to List" list="friend-selector">
                     <datalist id="friend-selector">
                         <option>Tom</option>
                         <option>Jerry</option>
-                        <!-- weitere Einträge -->
+                        <!-- weitere Einträge    onclick="addUser(event)" -->
                         </datalist>
-                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton" onclick="addUser(event)">
+                        
+                    <input class="friend-add-button nicebutton rounded-corners justbluebkgrd " disabled type="submit" value="Add" id="addButton">
                 </form>
             </div>
         </div>
