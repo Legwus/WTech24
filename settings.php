@@ -15,9 +15,10 @@ $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 
 // $service->login("Test1234", "12345678");
 
-$user = $service->loadUser($_SESSION['user']->getUsername());
+$user = $service->loadUser($_SESSION['user']);
 $json = json_encode($user);
 //var_dump($user->getCoffeeTea());
+
 ?>
 
 
@@ -66,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="center">
       <h2 class="align-to-the-left">Profile Settings</h2>
 
-      <form id="settingsForm" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+      <form id="settingsForm" method="POST" action="settings.php">
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Base Data</legend>
           <label for="fname"> First Name </label>
@@ -94,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </fieldset>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
-          <?php var_dump($user) ?>
+         
 
           <textarea
 

@@ -19,7 +19,7 @@
     }*/
 
     if(isset($_POST) && ($_SERVER['REQUEST_METHOD'] === 'POST')) {
-        var_dump(array("username" => $_POST["addFriend"]));
+        
         $service->friendRequest(array("username" => $_POST["addFriend"]));
         //exit();
         
@@ -41,10 +41,10 @@
     <div class="flex-container arialfont">
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
-            <?php var_dump($_SESSION); ?>
+          
             <div class="megaklasa">
                 <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
-                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
+                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.php">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
                     
