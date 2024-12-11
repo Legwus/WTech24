@@ -10,7 +10,7 @@ if ($friends) {
         if ($friend->getStatus() === 'accepted') {
 
             echo '<li>';
-            echo '<a href="chat.html?friend=' . htmlspecialchars($friend->getUsername()) . '">';
+            echo '<a href="chat.php?friend=' . htmlspecialchars($friend->getUsername()) . '">';
             echo htmlspecialchars($friend->getUsername());
             echo '</a>';
             if ($friend->getUnread() > 0) {
