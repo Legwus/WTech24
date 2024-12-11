@@ -1,26 +1,10 @@
 // ["Tom", "Jerry", "Tick", "Trick", "Truck", "Micky", "Donald", "Marvin"]
 
-// Read the token from the text file
-
-let tom =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
-let jerry =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
-
-let token = jerry;
 window.setInterval(function () {
   loadFriends();
-}, 1000);
+}, 10000);
 
 loadFriends();
-
-function acceptFriend(userName) {
-  console.log("Accepting friend request from " + userName);
-}
-
-function rejectFriend(userName) {
-  console.log("Reject friend request from " + userName);
-}
 
 function loadFriends() {
   let xmlhttp = new XMLHttpRequest();
@@ -46,7 +30,7 @@ function loadFriends() {
           // Add to the accepted friends list
           let li = document.createElement("li");
           let link = document.createElement("a");
-          link.href = "chat.php?friend=" + friend.username;
+          link.href = "chat.html?friend=" + friend.username;
           link.textContent = friend.username;
 
           li.appendChild(link);
@@ -86,11 +70,20 @@ function loadFriends() {
       });
     }
   };
-
-  xmlhttp.open("GET", "ajax_load_friends.php", true);
-  xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
-  xmlhttp.send();
+  // const xhr = new XMLHttpRequest();
+  // xhr.open("GET", "ajax_load_friends.php", true);
+  // xhr.onload = function () {
+  //   if (xhr.status === 200) {
+  //     console.log("Response from PHP:", xhr.responseText);
+  //   } else {
+  //     console.error("Error:", xhr.statusText);
+  //   }
+  // };
+  // xhr.send();
+  // xmlhttp.open("GET", backendUrl + "/friend", true);
+  // xmlhttp.setRequestHeader("Content-type", "application/json");
+  // xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  // xmlhttp.send();
 }
 
 function listUsers() {
@@ -159,29 +152,30 @@ function listUsers() {
     }
   };
 
-  xmlhttp.open("GET", "ajax_load_friends.php", true);
+  xmlhttp.open("GET", backendUrl + "/user", true);
   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   xmlhttp.send();
 }
 
-function addUser(event) {
-  event.preventDefault(); // Prevent page refresh
-
+function addUser() {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
       console.log("Requested...");
     }
   };
-  xmlhttp.open("POST", "ajax_load_friends.php", true);
+  xmlhttp.open("POST", backendUrl + "/friend", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   let data = {
     username: document.getElementById("addFriend").value,
   };
-
-  console.log(data);
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
+  alert("chuj");
   xmlhttp.send(jsonString);
+}
+
+function rejectFriend(friend) {
+  console.log(friend);
 }

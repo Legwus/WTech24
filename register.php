@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,5 +114,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
   <script src="register.js"></script>
 </body>
+
 
 </html>

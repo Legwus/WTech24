@@ -1,10 +1,10 @@
 let loadMessageUrl = "ajax_load_messages.php"; // Updated to new endpoint
 let sendMessageUrl = "ajax_send_message.php"; // Updated to new endpoint
 
-let tom = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
+/*let tom = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMyNjMwMjgyfQ.R4fqhDBoT011itGxilKlo2JTK0Dj69ugs8YiJoR_DqI";
 let jerry = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
 
-let token = jerry;
+let token = jerry;*/
 
 const friendName = document.getElementById("friendName");
 setInterval(listMessages, 5000);  // Refresh messages every 5 seconds
@@ -35,7 +35,6 @@ function listMessages() {
     `ajax_load_messages.php?to=${nameFromQuery}`,
     true
   );
-  xmlhttp.setRequestHeader("Authorization", `Bearer ${token}`);
   xmlhttp.send();
 }
 
@@ -78,7 +77,6 @@ function sendMessages() {
   };
   xmlhttp.open("POST", sendMessageUrl, true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", `Bearer ${token}`);
   xmlhttp.send(JSON.stringify(data));
 }
 

@@ -1,20 +1,26 @@
 <?php
-require "start.php";
 
-if (!isset($_SESSION['user'])) {
-    http_response_code(401); // not authorized
-    return;
-}
 
-// Backend aufrufen
 $friends = $service->loadFriends();
+
 if ($friends) {
-    // erhaltene Friend-Objekte im JSON-Format senden 
-    echo json_encode($friends);
+    // Generate HTML output for friends
+    echo '<ul id="friendList">';
+    foreach ($friends as $friend) {
+        if ($friend->getStatus() === 'accepted') {
+
+            echo '<li>';
+            echo '<a href="chat.html?friend=' . htmlspecialchars($friend->getUsername()) . '">';
+            echo htmlspecialchars($friend->getUsername());
+            echo '</a>';
+            if ($friend->getUnread() > 0) {
+                echo '<span class="notification-border">' . htmlspecialchars($friend->getUnread()) . '</span>';
+            }
+            echo '</li>';
+        }
+    }
+    echo '</ul>';
+} else {
+    echo '<p>No friends found.</p>';
 }
-/* http status code setzen
- * - 200 Friends gesendet
- * - 404 Fehler
- */
-http_response_code($friends ? 200 : 404);
-?>
+//http_response_code($friends ? 200 : 404);
