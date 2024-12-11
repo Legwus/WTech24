@@ -35,7 +35,7 @@ if (!isset($_GET["friend"])) {
         <p class="align-to-the-left">
           <a href="friends.php"> &lt; Back </a> <span> | </span>
           <a href="profile.php?friend=<?php echo $_GET['friend'] ?>">Profile </a> <span> | </span>
-          <a class="red-link" href="friends.php"> Remove Friend </a>
+          <button class="btn-remove red-link" onclick="removeFriend('<?php echo $_GET['friend'] ?>')">Remove Friend</button>
         </p>
         <hr class="dotted-border" />
         <ul class="chatbox" id="chat-container">
@@ -57,6 +57,34 @@ if (!isset($_GET["friend"])) {
     </div>
   </div>
   <script src="chat.js"></script>
+  <?php
+  $token = $_SESSION['chat_token'];
+  echo <<<EOL
+<script>
+
+function removeFriend(username) {
+console.log(username);
+                                    let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+        console.log("Removed...");
+       setTimeout(() => {
+            window.location = "friends.php";
+        }, 1000);
+    }
+};
+
+xmlhttp.open("DELETE", "https://online-lectures-cs.thi.de/chat/132d33f2-44cf-45e1-9e85-e9da1b64102b/friend/" + username, true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.setRequestHeader("Authorization", "Bearer {$token}");
+xmlhttp.send();
+
+                            }
+
+</script> 
+EOL;
+  ?>
+
 </body>
 
 </html>
