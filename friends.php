@@ -1,4 +1,3 @@
-
 <?php
 require("start.php");
 if (!isset($_SESSION['user'])) {
@@ -23,8 +22,8 @@ if (!isset($_SESSION['user'])) {
         <div class="center">
             <h2 class="align-to-the-left">Friends</h2>
             <div class="megaklasa">
-                <p class="align-to-the-left"><a class="megaklasa" href="logout.html">
-                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.html">Settings</a></p>
+                <p class="align-to-the-left"><a class="megaklasa" href="logout.php">
+                        &lt; Logout </a><span> | </span> <a class="megaklasa" href="settings.php">Settings</a></p>
                 <hr class="dotted-border">
                 <ul class="friendlist" id="friendList">
                     <?php include "ajax_load_friends.php"; ?>
