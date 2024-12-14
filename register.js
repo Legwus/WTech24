@@ -93,11 +93,13 @@ function confirmPasswordFieldChecker() {
 function userChecker() {
   console.log("checking user");
   var usernameField = document.getElementById("username");
+  var feedback= document.getElementById("invalidFeedbackUsername");
   var userExists = checkIfUserExists(usernameField.value);
 
   if (usernameField.value.length == 0) {
     usernameField.classList.remove("is-valid");
     usernameField.classList.remove("is-invalid");
+
 
   } else {
 
@@ -108,7 +110,8 @@ function userChecker() {
 
         //passwordField.style.borderColor = "green";
         usernameField.classList.remove("is-valid");
-        usernameField.classList.add("is-invalid"); 
+        usernameField.classList.add("is-invalid");
+        feedback.innerHTML="Nutzername bereits vergeben.";
         return false;
       } else {
 
@@ -122,6 +125,7 @@ function userChecker() {
       //passwordField.style.borderColor = "green";
       usernameField.classList.remove("is-valid");
       usernameField.classList.add("is-invalid");
+      feedback.innerHTML="Der Nutzername muss mindestens 3 Zeichen lang sein.";
       return false;
     }
   }

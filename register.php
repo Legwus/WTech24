@@ -105,7 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="username">Username</label>
             <div class="valid-feedback">
-              Looks good!
+              Verfügbar!
+            </div>
+            <div class="invalid-feedback" id="invalidFeedbackUsername">
+              Der Nutzername muss mindestens 3 Zeichen lang sein.
             </div>
 
 
@@ -119,53 +122,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               value="<?php echo htmlspecialchars($password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
               oninput="passwordFieldChecker()" required />
             <label for="password">Password</label>
-            <div class="invalid-feedback">Password must be at least 8 characters.</div>
+            <div class="invalid-feedback">
+              Das Passwort muss mindestens 8 Zeichen lang sein.
+            </div>
           </div>
 
-          <div class="form-floating">
+          <div class="form-floating mb-5">
             <input type="password" name="confirm_password" class="form-control" id="confirm_password"
               placeholder="Confirm Password"
               value="<?php echo htmlspecialchars($confirm_password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
-              oninput="confirmPasswordFieldChecker()" required /><br /><br />
+              oninput="confirmPasswordFieldChecker()" required />
             <label for="confirm_password">Confirm Password</label>
-
-
+            <div class="invalid-feedback">
+              Die Passwörter stimmen nicht überein.
+            </div>
+          </div>
 
         </form>
 
 
-      </div>
 
 
 
-      <div class="btn-group w-100" role="group" aria-label="Basic example">
+        <div class="btn-group w-100" role="group" aria-label="Basic example">
 
 
-        <a class="btn btn-secondary" button href="login.html" type="button">Cancel</a>
-        <button class="btn btn-primary" type="submit" form="register_form" id="register_button">
-          Create Account
-        </button>
+          <a class="btn btn-secondary" button href="login.html" type="button">Cancel</a>
+          <button class="btn btn-primary" type="submit" form="register_form" id="register_button">
+            Create Account
+          </button>
 
+        </div>
       </div>
 
     </div>
   </div>
 
 
-   <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
   <script src="register.js"></script>
 </body>
 
