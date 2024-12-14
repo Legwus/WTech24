@@ -1,6 +1,4 @@
-const passwordField = document.getElementById("password");
-const confirmPasswordField = document.getElementById("confirm_password");
-const usernameField = document.getElementById("username");
+
 const form = document.getElementById("register_form");
 const registerButton = document.getElementById("register_button");
 
@@ -12,6 +10,8 @@ confirmPasswordFieldChecker();
 
 
 function checkIfUserExists(userName) {
+
+ 
   var xmlhttp = new XMLHttpRequest();
   var userExists = false;
 
@@ -44,82 +44,84 @@ function checkIfUserExists(userName) {
 
 function passwordFieldChecker() {
 
-  const pw = passwordField.value;
-  if (pw.length == 0) {
-    passwordField.style.borderColor = "black";
-    passwordField.style.backgroundColor = "white"
-  } else {
-    if (pw.length < 8) {
-      passwordField.style.borderColor = "red";
-      passwordField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
-    } else {
-      passwordField.style.borderColor = "green";
-      passwordField.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
-    }
+  var passwordField = document.getElementById("password");
+  var pw = passwordField.value;
+  
+  if (pw.length === 0) {
+    // Neutral state
 
+    passwordField.classList.remove("is-valid");
+    passwordField.classList.remove("is-invalid");
+  } else if (pw.length < 8) {
+    // Invalid state
+
+    passwordField.classList.remove("is-valid");
+    passwordField.classList.add("is-invalid");
+  } else {
+    // Valid state
+
+    passwordField.classList.remove("is-invalid");
+    passwordField.classList.add("is-valid");
   }
 }
 
 function confirmPasswordFieldChecker() {
+  var confirmPasswordField = document.getElementById("confirm_password");
+  var passwordField = document.getElementById("password");
 
-  const pw = passwordField.value;
-  const pwc = confirmPasswordField.value
+  var pw = passwordField.value;
+  var pwc = confirmPasswordField.value
 
 
   if (pwc.length == 0) {
-    confirmPasswordField.style.borderColor = "black";
-    confirmPasswordField.style.backgroundColor = "white"
+    confirmPasswordField.classList.remove("is-invalid");
+    confirmPasswordField.classList.remove("is-valid");
   } else {
 
     if (pwc.length < 8 || pwc != pw) {
-      confirmPasswordField.style.borderColor = "red";
-      confirmPasswordField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+      confirmPasswordField.classList.remove("is-valid");
+      confirmPasswordField.classList.add("is-invalid");
     } else {
-      confirmPasswordField.style.borderColor = "green";
-      confirmPasswordField.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
+      confirmPasswordField.classList.remove("is-invalid");
+      confirmPasswordField.classList.add("is-valid");
     }
 
   }
 }
 
 
-/*
-registerButton.disabled = !(
-  passwordFieldChecker() &&
-  confirmPasswordFieldChecker() &&
-  userChecker()
-);
-*/
-
-
-
 function userChecker() {
-  const userExists = checkIfUserExists(usernameField.value);
+  console.log("checking user");
+  var usernameField = document.getElementById("username");
+  var userExists = checkIfUserExists(usernameField.value);
 
   if (usernameField.value.length == 0) {
-    usernameField.style.borderColor = "black";
-    usernameField.style.backgroundColor = "white"
+    usernameField.classList.remove("is-valid");
+    usernameField.classList.remove("is-invalid");
+
   } else {
 
 
     if (usernameField.value.length >= 3) {
 
       if (userExists) {
-        usernameField.style.borderColor = "red";
-        usernameField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+
         //passwordField.style.borderColor = "green";
+        usernameField.classList.remove("is-valid");
+        usernameField.classList.add("is-invalid");
         return false;
       } else {
-        usernameField.style.borderColor = "green";
-        usernameField.style.backgroundColor = "rgba(144, 238, 144, 0.5)"; // Light green with 50% transparency
 
+        usernameField.classList.remove("is-invalid");
+        usernameField.classList.add("is-valid");
         // passwordField.style.borderColor = "red";
         return true;
       }
     } else {
-      usernameField.style.borderColor = "red";
-      usernameField.style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+
       //passwordField.style.borderColor = "green";
+      usernameField.classList.remove("is-valid");
+      usernameField.classList.add("is-invalid");
       return false;
     }
   }
