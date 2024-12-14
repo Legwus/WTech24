@@ -108,7 +108,7 @@ function userChecker() {
 
         //passwordField.style.borderColor = "green";
         usernameField.classList.remove("is-valid");
-        usernameField.classList.add("is-invalid");
+        usernameField.classList.add("is-invalid"); 
         return false;
       } else {
 
