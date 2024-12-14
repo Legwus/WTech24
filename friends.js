@@ -6,7 +6,7 @@ let token = "";
 
 window.setInterval(function () {
   loadFriends();
-}, 10000);
+}, 1000);
 
 loadFriends();
 getCurrentUser();
@@ -28,6 +28,7 @@ function acceptFriend(userName) {
       xmlhttp.open("GET", requestUser, true);
       xmlhttp.setRequestHeader("Content-type", "application/json");
       xmlhttp.send();
+      loadFriends();
 
 }
 
@@ -48,6 +49,7 @@ function rejectFriend(userName) {
       xmlhttp.open("GET", requestUser, true);
       xmlhttp.setRequestHeader("Content-type", "application/json");
       xmlhttp.send();
+      loadFriends();
 
 }
 
@@ -121,6 +123,7 @@ function loadFriends() {
   xmlhttp.open("GET", "ajax_load_friends.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.send();
+  listUsers();
 }
 
 function listUsers() {
@@ -171,7 +174,7 @@ function listUsers() {
         if (inputValue.length == 0) {
           addButton.disabled = true; // Enable button
           inputField.style.boxShadow = "none"; // No shadow for no input
-          inputField.style.border = "none";
+          inputField.style.border = "1px solid black";
         } else if (
           !data.includes(inputValue) || // Not in user list
           inputValue == currentUser || // Current user
@@ -182,8 +185,8 @@ function listUsers() {
           inputField.style.border = "1px solid red";
         } else {
           addButton.disabled = false; // Enable button
-          inputField.style.boxShadow = "none"; // No shadow for valid input
-          inputField.style.border = "none";
+          inputField.style.boxShadow = "inset 0 0 2px green"; // No shadow for valid input
+          inputField.style.border = "1px solid black";
         }
       });
     }
@@ -239,4 +242,5 @@ function addUser(event) {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   xmlhttp.send(jsonString);
+  loadFriends();
 }

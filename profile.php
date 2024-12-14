@@ -32,7 +32,7 @@ if(isset($_GET) && ($_SERVER['REQUEST_METHOD'] === 'GET')) {
             <div class="megaklasa">
 
                 <p class="align-to-the-left"><a href="chat.php?friend=<?= htmlspecialchars($_GET['user'], ENT_QUOTES, 'UTF-8') ?>">
-                        &lt; Back to Chat </a> <span> | </span> <a class="red-link" href="ajax_delete_friend.php?user=<?= htmlspecialchars($friend, ENT_QUOTES, 'UTF-8') ?>" >Remove Friend</a></p>
+                        &lt; Back to Chat </a> <span> | </span> <a class="red-link" href="ajax_delete_friend.php?user=<?= htmlspecialchars($_GET['user'], ENT_QUOTES, 'UTF-8') ?>" >Remove Friend</a></p>
                 <div class="horizontal-flex">
                     <img class="profile-image-size item-align-to-the-left" src="./images/profile.png" alt="Login page"><br><br>
                     <div class="infobox align-to-the-left">
