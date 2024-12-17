@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
   <meta charset="UTF-8" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Settings Page</title>
@@ -69,44 +68,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h2 class="align-to-the-left">Profile Settings</h2>
 
       <form id="settingsForm" method="POST" action="settings.php">
-        
-          <span class="align-to-the-left">Base Data</span> <br/>
-          
-          <div class="floating-form mb-3">
-          <label for="fname" class="form-label">First Name</label>
-          <input  name="fname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control" id="fname" placeholder="Your First Name">
-          </div>
-
-
-          <!-- <input value="<?php echo $user->getFirstName(); ?>"
+        <fieldset class="dotted-border fieldsetstyling">
+          <legend>Base Data</legend>
+          <label for="fname"> First Name </label>
+          <input value="<?php echo $user->getFirstName(); ?>"
             type="text"
             id="fname"
             name="fname"
-            placeholder="Your name"></input><br /><br /> -->
+            placeholder="Your name"></input><br /><br />
 
-          <div class="mb-3">
-          <label for="surname" class="form-label">Last Name</label>
-          <input value="<?php echo $user->getSurName() ?>" name="surname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control" id="surname" placeholder="Your Surname">
-          </div>
-          <!-- <input value="<?php echo $user->getSurName() ?>"
+          <label for="surname">Last Name</label>
+
+          <input value="<?php echo $user->getSurName() ?>"
             type="text"
             id="surname"
             name="surname"
             placeholder="Your surname">
-          </input><br /><br /> -->
+          </input><br /><br />
           <label for="choice"> Coffee or Tea? </label>
-          <select name="choice" class="form-select" aria-label="Default select example">
-          <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?> value="Neither nor">Neither nor</option>
-          <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee</option>
-          <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea</option>
-           </select><br/>
-          <!-- <select name="choice" id="coffeeTea">
+          <select name="choice" id="coffeeTea">
 
             <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?>value="Neither Nor">Neither nor</option>
             <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee </option>
             <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea </option>
-          </select><br /> -->
-        
+          </select><br />
+        </fieldset>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
          

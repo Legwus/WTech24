@@ -61,20 +61,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- <link rel="stylesheet" href="styles.css" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Settings Page</title>
+  <style>
+      .custom-height {
+            height: 50px; /* Set desired height */
+            font-size: 1rem; /* Keep font size normal */
+        }
+    </style>
 </head>
 
-<body>
-<div class="flex-container arialfont">
+<body class="bg-light container-lg d-flex  justify-content-center">
+<div class="flex-container w-50 arialfont">
 <div class="center">
-      <h2 class="align-to-the-left">Profile Settings</h2>
-
+<!-- <div class="border p-5 mt-5 bg-white">       -->
+<br/><br/>
+<h2>Profile Settings</h2>
+<hr></hr>
       <form id="settingsForm" method="POST" action="settings.php">
         
-          <span class="align-to-the-left">Base Data</span> <br/>
+          <h4>Base Data</h4>
           
           <div class="floating-form mb-3">
-          <label for="fname" class="form-label">First Name</label>
-          <input  name="fname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control" id="fname" placeholder="Your First Name">
+          
+          <input  name="fname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control custom-height" id="fname" placeholder="Your First Name">
           </div>
 
 
@@ -85,8 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             placeholder="Your name"></input><br /><br /> -->
 
           <div class="mb-3">
-          <label for="surname" class="form-label">Last Name</label>
-          <input value="<?php echo $user->getSurName() ?>" name="surname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control" id="surname" placeholder="Your Surname">
+          <input value="<?php echo $user->getSurName() ?>" name="surname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control custom-height" id="surname" placeholder="Your Surname">
           </div>
           <!-- <input value="<?php echo $user->getSurName() ?>"
             type="text"
@@ -94,54 +101,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             name="surname"
             placeholder="Your surname">
           </input><br /><br /> -->
-          <label for="choice"> Coffee or Tea? </label>
-          <select name="choice" class="form-select" aria-label="Default select example">
+          <div class="form-floating">
+          <select id="floatingSelect" name="choice" class="form-select" aria-label="Default select example">
           <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?> value="Neither nor">Neither nor</option>
           <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee</option>
           <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea</option>
-           </select><br/>
+           </select>
+           <label for="floatingSelect">Coffee or Tea?</label>
+           </div>
           <!-- <select name="choice" id="coffeeTea">
 
             <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?>value="Neither Nor">Neither nor</option>
             <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee </option>
             <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea </option>
           </select><br /> -->
+        <hr>
         
-        <fieldset class="dotted-border fieldsetstyling">
-          <legend>Tell Something About You</legend>
+          <h5>Tell Something About You</h5>
          
-
-          <textarea
-
-            class="about-you-textfield custom-placeholder"
+          <div class="mb-3">
+          <textarea name="bio" class="form-control" id="bio" rows="3"><?php echo $user->getBio(); ?></textarea>
+          </div>
+          <!-- <textarea
             id="bio"
             name="bio"
-            placeholder="something idk"><?php echo $user->getBio(); ?></textarea>
-          <br />
-        </fieldset>
-        <fieldset class="dotted-border fieldsetstyling align-to-the-left">
-          <legend>Preferred Chat Layout</legend>
-
+            placeholder="something idk"><?php //echo $user->getBio(); ?></textarea> -->
+        
+       <hr>
+        
+          <h5>Preferred Chat Layout</h5>
+          <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" <?php if ($user->getRadio() == true) echo 'checked'; ?>>
+          <label class="form-check-label" for="flexRadioDefault1">
+          Username and message in one line
+          </label>
+           </div>
+           <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" <?php if ($user->getRadio() == false) echo 'checked'; ?>>
+          <label class="form-check-label" for="flexRadioDefault1">
+          Username and message in separated lines
+          </label>
+           </div>
           <!-- 'oneline' radio button mapped to true -->
-          <input type="radio" id="oneline" name="radio" value="1" <?php if ($user->getRadio() == true) echo 'checked'; ?> />Username and message in one line<br /><br />
+          <!-- <input type="radio" id="oneline" name="radio" value="1" <?php if ($user->getRadio() == true) echo 'checked'; ?> />Username and message in one line<br /><br /> -->
 
           <!-- 'sepline' radio button mapped to false -->
-          <input type="radio" id="sepline" name="radio" value="0" <?php if ($user->getRadio() == false) echo 'checked'; ?> />Username and message in separated lines
-        </fieldset>
+          <!-- <input type="radio" id="sepline" name="radio" value="0" <?php if ($user->getRadio() == false) echo 'checked'; ?> />Username and message in separated lines -->
+      <br/>
+      <hr>
+      <div class="btn-group w-100" role="group" aria-label="Basic example">
 
-        <a class="a-button" href="friends.php">
-          <button class="nicebutton" type="button">Cancel</button>
+
+      <a class="btn btn-secondary" button href="friends.php" type="button">Cancel</a>
+      <button value="Save" class="btn btn-primary" type="submit" form="settingsForm" id="register_button">
+        Save
+      </button>
+
+      </div>
+      <br/>
+        <a href="friends.php">
+          <button type="button">Cancel</button>
         </a>
 
         <input
-          class="nicebutton justbluebkgrd"
+        
           type="submit"
           value="Save"
           form="settingsForm" />
       </form>
-
-    </div>
+<!-- </div> -->
   </div>
+    </div>
 </body>
 
 </html>
