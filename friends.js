@@ -11,6 +11,7 @@ window.setInterval(function () {
 loadFriends();
 getCurrentUser();
 
+
 function acceptFriend(userName) {
   console.log("Accepting friend request from " + userName);
   let xmlhttp = new XMLHttpRequest();

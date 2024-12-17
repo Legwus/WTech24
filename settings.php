@@ -3,7 +3,7 @@
 
 require("start.php");
 if (!isset($_SESSION)) {
-  header('Location: login.html');
+  header('Location: login.php');
   exit;
 }
 // $user = new User(true); // Create an instance of the class

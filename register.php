@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Registration Page</title>
 </head>
 
-<body class="bg-light container-lg d-flex justify-content-center">
+<body class="bg-light container-lg d-flex justify-content-center align-items-center">
   <br>
 
   <div class="bg-white flex-container arialfont">
@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="btn-group w-100" role="group" aria-label="Basic example">
 
 
-          <a class="btn btn-secondary" button href="login.html" type="button">Cancel</a>
+          <a class="btn btn-secondary" button href="login.php" type="button">Cancel</a>
           <button class="btn btn-primary" type="submit" form="register_form" id="register_button">
             Create Account
           </button>

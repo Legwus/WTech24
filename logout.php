@@ -3,24 +3,36 @@
 <html lang="en">
 <?php
     require("start.php");
-    session_unset();
+    session_destroy();
 ?>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login Page</title>
-</head>
-<body>
-    <div class="flex-container arialfont">
-        <div class="center">
-    <img class="default-image-size img-rounded" src="./images/logout.png" class="img-rounded" alt="Login page" >
-    <h3>Logged out...</h3>
-    <p class="megaklasa"> See u! </p>
-    <p class="megaklasa" ><a class="megaklasa"  href="login.html">Login again</a></p>
-</div>
-</div>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sad to see you go...</title>
+    </head>
 
+    <body style="background-color: #f2f2f2">
+        <div class="container h-100 min-vh-100 d-flex justify-content-center align-items-center">
+            <div class="row text-center justify-content-center align-items-center">
+                <img class="rounded-circle" style="max-width: 150px" src="./images/logout.png" alt="Login page">
+            <div class="row mt-5 border text-center bg-light">
+                <div class="form-group">
+                    <div class="col-md-6 offset-md-3 mt-5">
+                        <h5>Logged out...</h5>
+                    </div>
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <h5 style="font-size: smaller;">See u!</h5>
+                    </div>
+                    <div class="col-md-8 offset-md-2 mb-5 mt-3">
+                        <form id="loginAgain" action="login.php">
+                            <button class="btn btn-secondary" style="width: 100%">Login again</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js' crossorigin='anonymous'></script>
+    </body>
+</html>

@@ -47,7 +47,7 @@
 
                 <!-- Buttons Row -->
                 <div class="row" style="max-width: 250px">
-                    <form id="backToLogout" action="logout.html"></form>
+                    <form id="backToLogout" action="logout.php"></form>
                     <form id="goToProfile" action="settings.php"></form>
                     <div class="btn-group" style="width: 100%" role="group">
                         <button class="btn btn-secondary" type="submit" form="backToLogout">< Logout</button>
