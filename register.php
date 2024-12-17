@@ -70,10 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Registration Page</title>
 </head>
 
-<body class="bg-light container-lg d-flex justify-content-center align-items-center">
+<body class="bg-light container h-100 min-vh-100 d-flex justify-content-center align-items-center">
   <br>
 
-  <div class="bg-white flex-container arialfont">
 
     <div class="center">
       <img class="rounded-circle mx-auto d-block w-25 m-3" src="./images/user.png" class="img-rounded"
@@ -91,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
       ?>
 
+  <div class="bg-white flex-container arialfont">
 
 
       <div class="border p-5 mt-5 bg-white">
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="form-floating mb-3">
             <input type="password" name="password" class="form-control" id="password" placeholder="Password"
               value="<?php echo htmlspecialchars($password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
-              oninput="passwordFieldChecker()" required />
+              onchange="passwordFieldChecker()" required />
             <label for="password">Password</label>
             <div class="invalid-feedback">
               Das Passwort muss mindestens 8 Zeichen lang sein.

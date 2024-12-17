@@ -97,7 +97,7 @@
                             <datalist id="friend-selector">
                                 <!-- Possible available friends are being loaded here -->
                             </datalist>
-                            <button class="btn btn-primary" type="submit" id="addButton" onclick="addUser(event)" disabled>Add Friends</button>
+                            <button class="btn btn-primary" type="submit" id="addButton" onclick="addUser(event)" disabled>Add Friend</button>
                         </div>
                     </form>
                 </div>

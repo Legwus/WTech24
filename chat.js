@@ -6,9 +6,16 @@ let sendMessageUrl = "ajax_send_message.php"; // Updated to new endpoint
 let jerry = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MzI2MzAyODJ9.pA9-AuP-DEuuRcYOf6Xv9oD8O3AqiFwjLh239oIJACI";
 
 let token = jerry;*/
+var jsVar="-1";
+  fetch('ajax_get_radio.php')
+  .then(response => response.json())
+  .then(data => {
+      console.log(data.message); // Output: Hello from PHP!
+      jsVar=data.message;
+  })
 
 const friendName = document.getElementById("friendName");
-setInterval(listMessages, 5000);  // Refresh messages every 5 seconds
+setInterval(listMessages, 1000);  // Refresh messages every 5 seconds
 document.addEventListener("DOMContentLoaded", () => {
   const nameFromQuery = getChatpartner();
   if (nameFromQuery) {
@@ -16,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(nameFromQuery);
   }
   listMessages();  // Initial message load
-  
+
 });
 
 function listMessages() {
@@ -40,7 +47,14 @@ function listMessages() {
 }
 
 function showMessage(message) {
-  return `<li>${message.from}: ${message.msg}</li>`;
+
+
+  if (jsVar=="1") {
+    return `<li>${message.from}: ${message.msg}</li>`;
+  } else {
+    
+    return `<li class="fw-bold">${message.from}:</li> <li>${message.msg}</li>`;
+  }
 }
 
 const sendMessage = document.getElementById("sendMessage");

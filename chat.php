@@ -17,13 +17,7 @@ if (!isset($_GET["friend"])) {
 
 } else {
   $friend = $_GET["friend"];
-
-
 }
-
-
-
-
 ?>
 
 
