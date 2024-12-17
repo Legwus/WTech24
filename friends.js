@@ -248,4 +248,6 @@ function addUser(event) {
   xmlhttp.open("POST", "ajax_send_friendrequest.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.send(jsonString);
+
+  document.getElementById("addFriend").value="";
 }

@@ -62,7 +62,7 @@
 
                 <!-- Friend List Row -->
                 <div class="row">
-                    <ol class="list-group" id="friendList">
+                    <ol class="list-group ms-1 ps-2" id="friendList">
                         <!-- Friendlist is being loaded here -->
                     </ol>
                 </div>
@@ -79,7 +79,7 @@
 
                 <!-- Friend Request List Row -->
                 <div class="row">
-                    <ol class="list-group" id="friendRequestList">
+                    <ol class="list-group ms-1 ps-2" id="friendRequestList">
                         <!-- Friendrequests are loaded here -->
                     </ol>
                 </div>
@@ -91,7 +91,7 @@
 
                 <!-- Add Friend Form Row -->
                 <div class="row">
-                    <form method="post" action="friends.html">
+                    <form method="post" action="friends.php">
                         <div class="input-group">
                             <input class="form-control" type="text" id="addFriend" name="addFriend" oninput="listUsers()" onclick="listUsers()" placeholder="Add a new friend to your list!" list="friend-selector">
                             <datalist id="friend-selector">
