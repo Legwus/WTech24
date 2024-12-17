@@ -12,7 +12,7 @@ if (!isset($_POST['username'])) {
 }
 //+ $_POST['username']
 // Backend aufrufen
-$response = $service->friendRequest(array("username" => "Tom"));
+$response = $service->friendRequest(array("username" => $_POST['username']));
 if ($response) {
     var_dump($response);	
     
