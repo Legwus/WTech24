@@ -1,84 +1,382 @@
-body {
+body, html {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 0 auto;
-    width: 80%;
+    height: 100%;
+    margin: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.flex-container {
+    width:90vw;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(243, 243, 243);
+    text-align: center;
+    height:100vh;
 }
 
-img{
-    border-radius: 100%;
+.flex-container > div {
+    background-color: #f8f2ff;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    max-height:700px;
+    margin: 10px;
+    padding: 20px;
+    font-size: 25px;
+    width:100%;
+    box-sizing: border-box;
 }
 
-
-
-fieldset {
-    width: 60%;
-    background-color: rgb(255, 255, 255);
-    border-style: dotted;
-    border-width: 1px;
-    border-color: black;
-    margin-bottom: 0.5em;
-}
-
-div.password,div.username{
+.horizontal-flex {
+    flex-wrap:wrap;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-}
-
-div label{
-    margin-right: 1em;
-  
-}
-
-div.username input, div.password input{
-    margin-right: 2em;
-    border-radius: 0%;
-    border-width: 1px;
-    padding: 4px;
+    flex-direction:row;
     
 }
 
-fieldset div {
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
+.flex-container h2 {
+    margin-top:20px;
+    margin-bottom:20px;
 }
 
-div.login_buttons{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+
+
+.arialfont {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dotted-border {
+    border-style:dotted;
+    border-color: grey;
+}
+
+form .friend-add-button {
+    margin-left:5%;
+    width:20%;
+}
+
+.img-rounded {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.fieldsetstyling {
+    font-size: 16px;
+    background-color: white;
+}
+
+/* .fieldsetstyling > *:not(legend):not(#bio) {
+    margin-left:10%;
+} */
+
+
+
+.fieldsetstyling input {
+    height:22px;
+    
+}
+
+.megaklasa {
+    font-size:15px;
+    margin: unset 10px;
+    
+}
+.megaklasa a {
+    color:rgb(33, 137, 255);
+    text-decoration: none;
+}
+
+.megaklasa a:visited {
+    color:rgb(33, 137, 255);
+    text-decoration: none;
+}
+
+
+
+.friendlist {
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:10px;
    
+    list-style: none;
+    /* text-align: start; */
+    background: white;
 }
 
-div.login_buttons button, div.login_buttons input{
 
-    margin: 2px;
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    border-radius: 1%;
-    border-style: hidden;
+.friendlist li {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    width:100%;
 
 }
 
-div.login_buttons button{
+.friendlist li:first-child {
+    margin-top: 10px;
+}
 
-    background-color: rgb(163, 163, 163);
+.friendlist li:last-child {
+    margin-bottom: 10px;
+}
+
+.friendlist a {
+    color:black;
+}
+
+.friendlist a:visited {
+    color:black;
+}
+
+.friendlist span {
+    text-align:center;
+    display:block;
+    margin-left:auto;
+    background-color: rgb(33, 137, 255);
+    color:white;
+    width:18px;
+    font-weight: bold;
+}
+
+.chatbox {
+    height:400px;
+    overflow:scroll;
+
+}
+
+.chat .chatbox {
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:10px;
+   
+    list-style: none;
+    /* text-align: start; */
+    background: white;
+}
+
+.chat .chatbox li {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    width:100%;
+
+}
+
+
+.profile
+
+.chat .chatbox li:first-child {
+    margin-top: 20px;
+}
+
+.chat .chatbox li:last-child {
+    margin-bottom: 20px;
+}
+
+.chat .chatbox a {
+    color:black;
+}
+
+.chat .chatbox a:visited {
+    color:black;
+}
+
+
+
+.align-to-the-left {
+    text-align: start;
+}
+
+.item-align-to-the-left {
+    display:flex;
+    align-items: start;
+}
+
+#sendButton {
+
+margin-top:0px;
+}
+
+.chat .megaklasa .red-link {
+    color: red;
+}
+
+.profile .megaklasa .red-link {
+    color: red;
+}
+
+.profile .infobox {
+    margin-left:15px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left:10px;
+    padding-right:30px;
+   max-width:435px;
+    list-style: none;
+    text-align: start; 
+    background: white;
+}
+@media only screen and (max-width:810px) {
+    .profile .infobox {
+        margin-left:15px;
+        border: 2px solid rgb(216, 216, 216);
+        padding-left:10px;
+        padding-right:30px;
+        padding-bottom:30px;
+        margin-bottom:30px;
+       max-width:365px;
+        list-style: none;
+        text-align: start; 
+        background: white;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .profile .infobox {
+        margin-top:30px;
+        margin-left:15px;
+        border: 2px solid rgb(216, 216, 216);
+        padding-left:10px;
+        padding-right:30px;
+        padding-bottom:30px;
+        margin-bottom:30px;
+       max-width:206px;
+        list-style: none;
+        text-align: start; 
+        background: white;
+    }
+}
+
+.profile .strongtext {
+    font-weight: bold;
+}
+
+.profile .setting-choice-padding {
+    padding-left: 35px;
+}
+
+
+
+.fieldsetstyling label {
+    width:150px;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: right;
+    margin-right: 5px;
     
-    color: white;
+    
 }
 
-div.login_buttons input{
-    background-color: rgb(0, 81, 255);
+
+
+.fieldsetstyling select {
+    width:160px;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: left;
+    margin-right: 0px;
+    background-color: white;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    height:26px;
+}
+
+
+.a-button {
+    text-decoration: none;
+}
+
+
+.settings fieldset {
+    margin-bottom: 10px;
+}
+
+.settings textarea {
+    resize:none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+fieldset .about-you-textfield {
+    width: 99%;
+    height: 200px;
+}
+
+.nicebutton {
+    padding:10px;
+    width:100px;
+    border:1px;
+    display:inline-block;
+    margin:5px;
+    margin-top: 10px;
+    background-color: rgb(162, 162, 162);
+    font-size:15px;
     
-    color: white;
+    font-weight: bold;
+    color:white;
+    text-decoration: none;
+    cursor:pointer;
+    
+}
+
+.registerButton:hover{
+    background-color: rgb(72, 72, 72);
+}
+
+.nicebutton:disabled {
+    cursor:not-allowed;
+    background-color:grey;
+}
+
+.nicebutton:hover:disabled {
+    background-color: rgb(72, 72, 72);
+}
+
+.button-disabled {
+    cursor:not-allowed;
+}
+
+.rounded-corners {
+    border-radius: 3px;
+}
+
+.justbluebkgrd {
+    background-color: rgb(33, 137, 255);
+}
+
+.justbluebkgrd:hover:enabled {
+    background-color: rgb(22, 86, 160);
+}
+
+.justbluebkgrd:disabled {
+    background-color: darkgrey;
+}
+
+.big-textfield {
+    width:70%;
+    height:30px;
+}
+
+.default-image-size {
+    width:150px;
+    height:150px;
+}
+
+.profile-image-size {
+    width:250px;
+    height:250px;
+    margin-left:15px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }

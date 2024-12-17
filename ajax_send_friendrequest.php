@@ -5,19 +5,19 @@ require "start.php";
 
 if (!isset($_POST['username'])) {
     http_response_code(401); // not authorized
-    var_dump($_POST);
+    //var_dump($_POST);
     return;
 } else {
-    console.log("Success");
+  
 }
-
+//+ $_POST['username']
 // Backend aufrufen
-$response = $service->friendRequest($_POST['username']);
+$response = $service->friendRequest(array("username" => "Tom"));
 if ($response) {
-    // erhaltene Friend-Objekte im JSON-Format senden 
-    console.log("Successful friendrequest!");
+    var_dump($response);	
+    
 } else {
-    console.log("Error within friendrequest!");
+  
 }
 /* http status code setzen
  * - 200 Friends gesendet

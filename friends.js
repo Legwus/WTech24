@@ -1,16 +1,66 @@
+
 // ["Tom", "Jerry", "Tick", "Trick", "Truck", "Micky", "Donald", "Marvin"]
+
+// Read the token from the text file
+let currentUser = "";
+let token = "";
 
 window.setInterval(function () {
   loadFriends();
-}, 10000);
+}, 1000);
 
 loadFriends();
+getCurrentUser();
+
+function acceptFriend(userName) {
+  console.log("Accepting friend request from " + userName);
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText);
+      console.log("response: ");
+      console.log(data);
+
+     
+      console.log("sending request"); 
+       }
+  }; 
+      var requestUser = "ajax_accept_friend.php?friendname=" + userName;
+      xmlhttp.open("GET", requestUser, true);
+      xmlhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send();
+      loadFriends();
+
+}
+
+function rejectFriend(userName) {
+  console.log("Reject friend request from " + userName);
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText);
+      console.log("response: ");
+      console.log(data);
+
+     
+      console.log("sending request"); 
+       }
+  }; 
+      var requestUser = "ajax_decline_friend.php?friendname=" + userName;
+      xmlhttp.open("GET", requestUser, true);
+      xmlhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send();
+      loadFriends();
+
+}
+
 
 function loadFriends() {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       let data = JSON.parse(xmlhttp.responseText);
+      console.log("loadFriends: ");
       console.log(data);
 
       // Get the friend list containers
@@ -70,20 +120,11 @@ function loadFriends() {
       });
     }
   };
-  // const xhr = new XMLHttpRequest();
-  // xhr.open("GET", "ajax_load_friends.php", true);
-  // xhr.onload = function () {
-  //   if (xhr.status === 200) {
-  //     console.log("Response from PHP:", xhr.responseText);
-  //   } else {
-  //     console.error("Error:", xhr.statusText);
-  //   }
-  // };
-  // xhr.send();
-  // xmlhttp.open("GET", backendUrl + "/friend", true);
-  // xmlhttp.setRequestHeader("Content-type", "application/json");
-  // xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
-  // xmlhttp.send();
+
+  xmlhttp.open("GET", "ajax_load_friends.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+  xmlhttp.send();
+  listUsers();
 }
 
 function listUsers() {
@@ -91,6 +132,7 @@ function listUsers() {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      console.log("listUsers: ");
       console.log(data);
 
       // Get the datalist element
@@ -105,13 +147,12 @@ function listUsers() {
       ).map((friend) => friend.textContent); // Extract usernames from friend list
 
       // Current username (derived from the token)
-      let currentUser = "";
-      if (token == tom) {
+      /*if (token == tom) {
         currentUser = "Tom";
       }
       if (token == jerry) {
         currentUser = "Jerry";
-      }
+      }*/
 
       // Add options to the datalist and handle validation
       data.forEach(function (user) {
@@ -134,7 +175,7 @@ function listUsers() {
         if (inputValue.length == 0) {
           addButton.disabled = true; // Enable button
           inputField.style.boxShadow = "none"; // No shadow for no input
-          inputField.style.border = "none";
+          inputField.style.border = "1px solid black";
         } else if (
           !data.includes(inputValue) || // Not in user list
           inputValue == currentUser || // Current user
@@ -145,37 +186,62 @@ function listUsers() {
           inputField.style.border = "1px solid red";
         } else {
           addButton.disabled = false; // Enable button
-          inputField.style.boxShadow = "none"; // No shadow for valid input
-          inputField.style.border = "none";
+          inputField.style.boxShadow = "inset 0 0 2px green"; // No shadow for valid input
+          inputField.style.border = "1px solid black";
         }
       });
     }
   };
 
-  xmlhttp.open("GET", backendUrl + "/user", true);
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+  xmlhttp.open("GET", "ajax_load_users.php", true);
   xmlhttp.send();
 }
 
-function addUser() {
+function getCurrentUser() {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      currentUser = data.user;
+      console.log(currentUser);
+    }
+  }
+  xmlhttp.open("GET", "ajax_get_current_user.php", true);
+  xmlhttp.send();
+}
+
+function getCurrentToken() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      let data = JSON.parse(xmlhttp.responseText); // User list from backend
+      token = data.chat_token;
+      console.log(token);
+    }
+  }
+  xmlhttp.open("GET", "ajax_get_current_token.php", true);
+  xmlhttp.send();
+}
+
+function addUser(event) {
+  event.preventDefault(); // Prevent page refresh
+
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    console.log("State: " + xmlhttp.readyState);
+    console.log("Status: " + xmlhttp.status);
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
       console.log("Requested...");
     }
   };
-  xmlhttp.open("POST", backendUrl + "/friend", true);
+  xmlhttp.open("POST", "ajax_send_friendrequest.php", false);
   xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
   let data = {
     username: document.getElementById("addFriend").value,
   };
+
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
-  alert("chuj");
   xmlhttp.send(jsonString);
-}
-
-function rejectFriend(friend) {
-  console.log(friend);
+  loadFriends();
 }

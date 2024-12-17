@@ -18,6 +18,7 @@ $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 $user = $service->loadUser($_SESSION['user']);
 $json = json_encode($user);
 //var_dump($user->getCoffeeTea());
+
 ?>
 
 
@@ -95,8 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
 
-          <?php //var_dump($user) 
-          ?>
+         
+
+
           <textarea
 
             class="about-you-textfield custom-placeholder"
