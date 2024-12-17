@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,3 +68,4 @@ if(!isset($_GET["friend"])) {
     <script src="chat.js"></script>
   </body>
 </html>
+

@@ -1,4 +1,5 @@
 <?php
+
 namespace Utils;
 
 use Model\Friend;
@@ -12,25 +13,30 @@ use Model\User;
  * @param string ... beliebig viele Parameter die zusammengefügt werden
  * @return string Zusammengefügter Pfad.
  */
-function join_paths() {
+function join_paths()
+{
     $paths = array();
     foreach (func_get_args() as $arg) {
-        if ($arg !== '') { $paths[] = $arg; }
+        if ($arg !== '') {
+            $paths[] = $arg;
+        }
     }
-    return preg_replace('#/+#','/',join('/', $paths));
+    return preg_replace('#/+#', '/', join('/', $paths));
 }
 
-class BackendService{
+class BackendService
+{
     public $link = "";
     private $base = "";
     private $id = "";
-    
+
     /**
      * Erzeugt eine Instanz des BackendService.
      * @param $base Basisadresse des Backends
      * @param $id Collection ID
      */
-    public function __construct($base, $id) {
+    public function __construct($base, $id)
+    {
         $this->link = join_paths($base, $id);
         $this->base = $base;
         $this->id = $id;
@@ -44,28 +50,30 @@ class BackendService{
      * @param $username string mit dem username
      * @param $password string mit dem password
      */
-    public function login($username, $password){
-        try{
+    public function login($username, $password)
+    {
+        try {
             $result = HttpClient::post(join_paths($this->link, "login"), array(
                 "username" => $username,
                 "password" => $password
             ));
             $_SESSION["chat_token"] = $result->token;
             return true;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
     }
 
-    public function test() {
+    public function test()
+    {
         try {
-        return HttpClient::get($this->base . '/test.json');
-        } catch(\Exception $e) {
-        error_log($e);
+            return HttpClient::get($this->base . '/test.json');
+        } catch (\Exception $e) {
+            error_log($e);
         }
         return false;
-        }
+    }
 
     /**
      * Registriert einen neuen Benutzer mit Benutername und Passwort.
@@ -75,25 +83,27 @@ class BackendService{
      * @param $username string mit dem username
      * @param $password string mit dem password
      */
-    public function register($username, $password){
-        try{
+    public function register($username, $password)
+    {
+        try {
             $result = HttpClient::post(join_paths($this->link, "register"), array(
                 "username" => $username,
                 "password" => $password
             ));
             $_SESSION["chat_token"] = $result->token;
             return true;
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
     }
-    
+
     /**
      * Liefert ein Benutzerobjekt zu $username oder `false`.
      * @param $username string mit dem username des zu ladenden Profils
      */
-    public function loadUser($username){
+    public function loadUser($username)
+    {
         try {
             $user = HttpClient::get(join_paths($this->link, "user", $username), $_SESSION["chat_token"]);
             return User::fromJson($user);
@@ -108,7 +118,8 @@ class BackendService{
      *   Wichtig: das `username`-Attribut muss gesetzt sein!
      * @return true bei Erfolg oder false im Fehlerfall
      */
-    public function saveUser($user){
+    public function saveUser($user)
+    {
         try {
             HttpClient::put(join_paths($this->link, "user", $user->getUsername()), $user, $_SESSION["chat_token"]);
             return true;
@@ -124,12 +135,15 @@ class BackendService{
      * @param $chatpartner string mit dem username des chatpartners
      * @return array mit Nachrichten oder false im Fehlerfall
      */
-    public function loadMessages($chatpartner){
-        try{
-            $messages = HttpClient::get(join_paths($this->link, "message", $chatpartner), 
-                $_SESSION["chat_token"]);
+    public function loadMessages($chatpartner)
+    {
+        try {
+            $messages = HttpClient::get(
+                join_paths($this->link, "message", $chatpartner),
+                $_SESSION["chat_token"]
+            );
             return $messages;
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -139,15 +153,16 @@ class BackendService{
      * @see https://online-lectures-cs.thi.de/chat/full#list-friends
      * @return array mit Friend-Objekten oder false im Fehlerfall
      */
-    public function loadFriends(){
-        try{
+    public function loadFriends()
+    {
+        try {
             $friend = HttpClient::get(join_paths($this->link, "friend"), $_SESSION["chat_token"]);
             $friends = array();
-            foreach($friend as $element){
+            foreach ($friend as $element) {
                 $friends[] = Friend::fromJson($element);
             }
             return $friends;
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -157,11 +172,12 @@ class BackendService{
      * Liefert alle existierenden Benutzer oder `false` im Fehlerfall.
      * @see https://online-lectures-cs.thi.de/chat/full#load-user
      */
-    public function loadUsers() {
-        try{
+    public function loadUsers()
+    {
+        try {
             $users = HttpClient::get(join_paths($this->link, "user"), $_SESSION["chat_token"]);
             return $users;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -171,13 +187,16 @@ class BackendService{
      * Sendet eine Nachricht, liefert true bei Erfolg.
      * $message sollte ein Standard Object sein mit den Fields "msg" und "to"
      */
-    public function sendMessage($message) {
+    public function sendMessage($message)
+    {
         try {
-            $reply = HttpClient::post(join_paths($this->link, "message"),
+            $reply = HttpClient::post(
+                join_paths($this->link, "message"),
                 array("message" => $message->msg, "to" => $message->to),
-                $_SESSION["chat_token"]);
+                $_SESSION["chat_token"]
+            );
             return true;
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
     }
@@ -188,11 +207,12 @@ class BackendService{
      * @param $friend array mit {"username"=> "<username des neuen Freundes>"}
      * @return true bei Erfolg, sonst false
      */
-    public function friendRequest($friend){
-        try{
+    public function friendRequest($friend)
+    {
+        try {
             HttpClient::post(join_paths($this->link, "friend"), $friend, $_SESSION["chat_token"]);
             return true;
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -204,11 +224,12 @@ class BackendService{
      * @see https://online-lectures-cs.thi.de/chat/full#friend-accept
      * @return true bei Erfolg, sonst false 
      */
-    public function friendAccept($friend){
-        try{
+    public function friendAccept($friend)
+    {
+        try {
             HttpClient::put(join_paths($this->link, "friend", $friend), array("status" => "accepted"), $_SESSION["chat_token"]);
             return true;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -220,11 +241,12 @@ class BackendService{
      * @see https://online-lectures-cs.thi.de/chat/full#friend-accept
      * @return true bei Erfolg, sonst false 
      */
-    public function friendDismiss($friend){
-        try{
+    public function friendDismiss($friend)
+    {
+        try {
             HttpClient::put(join_paths($this->link, "friend", $friend), array("status" => "dismissed"), $_SESSION["chat_token"]);
             return true;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -236,11 +258,12 @@ class BackendService{
      * @param $friend string mit dem username des freundes, der entfernt werden soll
      * @return true bei Erfolg, sonst false
      */
-    public function removeFriend($friend){
-        try{
+    public function removeFriend($friend)
+    {
+        try {
             HttpClient::delete(join_paths($this->link, "friend", $friend), $_SESSION["chat_token"]);
             return true;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
@@ -250,7 +273,8 @@ class BackendService{
      * Liefert true, wenn $username existiert ,sonst false.
      * @param $username string mit dem username
      */
-    public function userExists($username){
+    public function userExists($username)
+    {
         try {
             HttpClient::get(join_paths($this->link, "user", $username));
             return true;
@@ -260,21 +284,21 @@ class BackendService{
         return false;
     }
 
-    
+
     /**
      * Liefert die Liste der Freund mit der Anzahl ungelesener Nachrichten 
      * zu jedem Freund.
      * @see https://online-lectures-cs.thi.de/chat/full#unread
      * @return Nachrichtenliste oder false bei Fehler
      */
-    public function getUnread(){
-        try{
+    public function getUnread()
+    {
+        try {
             $unread = HttpClient::get(join_paths($this->link, "unread"), $_SESSION["chat_token"]);
             return $unread;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             error_log($e);
         }
         return false;
     }
 }
-?>

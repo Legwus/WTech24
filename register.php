@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,5 +176,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     crossorigin="anonymous"></script>
   <script src="register.js"></script>
 </body>
+
 
 </html>

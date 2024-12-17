@@ -95,7 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </fieldset>
         <fieldset class="dotted-border fieldsetstyling">
           <legend>Tell Something About You</legend>
+
          
+
 
           <textarea
 

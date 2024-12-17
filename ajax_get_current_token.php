@@ -9,5 +9,3 @@ if (!isset($_SESSION['chat_token'])) {
 echo json_encode([
     'user' => $_SESSION['chat_token'] ?? null,
 ]);
-
-?>
