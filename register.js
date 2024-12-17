@@ -90,7 +90,18 @@ function confirmPasswordFieldChecker() {
 }
 
 
+
 function userChecker() {
+  let debounceTimer;
+  clearTimeout(debounceTimer); // Clear the previous timer
+  debounceTimer = setTimeout(() => {
+    
+    userChecker1();
+  }, 250); // 500ms delay (adjust as needed)
+}
+
+
+function userChecker1() {
   console.log("checking user");
   var usernameField = document.getElementById("username");
   var feedback= document.getElementById("invalidFeedbackUsername");
