@@ -131,13 +131,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
           <h5>Preferred Chat Layout</h5>
           <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" <?php if ($user->getRadio() == true) echo 'checked'; ?>>
+          <input class="form-check-input" type="radio" name="radio" id="oneline" value="1" <?php if ($user->getRadio() == true) echo 'checked'; ?>>
           <label class="form-check-label" for="flexRadioDefault1">
           Username and message in one line
           </label>
            </div>
            <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" <?php if ($user->getRadio() == false) echo 'checked'; ?>>
+          <input class="form-check-input" type="radio" name="radio" id="sepline" value="0" <?php if ($user->getRadio() == false) echo 'checked'; ?>>
           <label class="form-check-label" for="flexRadioDefault1">
           Username and message in separated lines
           </label>
