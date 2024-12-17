@@ -1,3 +1,4 @@
+
 // ["Tom", "Jerry", "Tick", "Trick", "Truck", "Micky", "Donald", "Marvin"]
 
 // Read the token from the text file

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $res = $service->register($username, $password);
 
     if ($res) {
-      $_SESSION['user']=$username;
+      $_SESSION['user'] = $username;
       header("Location: friends.php");
     } else {
       $errors[] = "Error with registering. Try again.";
@@ -61,16 +62,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="styles.css" />
+  <!-- <link rel="stylesheet" href="styles.css" />  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registration Page</title>
 </head>
 
-<body>
-  <div class="flex-container arialfont">
+<body class="bg-light container-lg d-flex justify-content-center">
+  <br>
+
+  <div class="bg-white flex-container arialfont">
+
     <div class="center">
-      <img class="default-image-size img-rounded" src="./images/user.png" class="img-rounded" alt="Login page" />
-      <h3>Register yourself</h3>
+      <img class="rounded-circle mx-auto d-block w-25 m-3" src="./images/user.png" class="img-rounded"
+        alt="Login page" />
+
 
       <?php
       // Fehler anzeigen, falls vorhanden
@@ -85,33 +93,91 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-      <fieldset class="dotted-border fieldsetstyling">
-        <legend>Register</legend>
+      <div class="border p-5 mt-5 bg-white">
+
+        <h3 class="text-center pb-2">Register yourself</h3>
+
         <form id="register_form" action="register.php" method="POST">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username"
-            value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>" oninput="userChecker()"
-            required /><br />
-          <br />
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password"
-            value="<?php echo htmlspecialchars($password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
-            oninput="passwordFieldChecker()" required />
-          <br />
-          <br />
-          <label for="confirm_password">Confirm Password:</label>
-          <input type="password" id="confirm_password" name="confirm_password"
-            value="<?php echo htmlspecialchars($confirm_password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
-            oninput="confirmPasswordFieldChecker()" required /><br /><br />
+
+          <div class="form-floating mb-3">
+
+            <input type="username" name="username" class="form-control" id="username" placeholder="Username"
+              value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>" onkeyup="userChecker()"
+              required />
+
+
+            <label for="username">Username</label>
+            <div class="valid-feedback">
+              Verfügbar!
+            </div>
+            <div class="invalid-feedback" id="invalidFeedbackUsername">
+              Der Nutzername muss mindestens 3 Zeichen lang sein.
+            </div>
+
+
+
+          </div>
+
+
+
+          <div class="form-floating mb-3">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password"
+              value="<?php echo htmlspecialchars($password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
+              oninput="passwordFieldChecker()" required />
+            <label for="password">Password</label>
+            <div class="invalid-feedback">
+              Das Passwort muss mindestens 8 Zeichen lang sein.
+            </div>
+          </div>
+
+          <div class="form-floating mb-5">
+            <input type="password" name="confirm_password" class="form-control" id="confirm_password"
+              placeholder="Confirm Password"
+              value="<?php echo htmlspecialchars($confirm_password ?? '', ENT_QUOTES, 'UTF-8'); ?>"
+              oninput="confirmPasswordFieldChecker()" required />
+            <label for="confirm_password">Confirm Password</label>
+            <div class="invalid-feedback">
+              Die Passwörter stimmen nicht überein.
+            </div>
+          </div>
+
         </form>
-      </fieldset>
-      <a class="nicebutton" button href="login.html" type="button">Cancel</a>
-      <button class="nicebutton justbluebkgrd" type="submit" form="register_form" id="register_button">
-        Register
-      </button>
+
+
+
+
+
+        <div class="btn-group w-100" role="group" aria-label="Basic example">
+
+
+          <a class="btn btn-secondary" button href="login.html" type="button">Cancel</a>
+          <button class="btn btn-primary" type="submit" form="register_form" id="register_button">
+            Create Account
+          </button>
+
+        </div>
+      </div>
+
     </div>
   </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
   <script src="register.js"></script>
 </body>
+
 
 </html>

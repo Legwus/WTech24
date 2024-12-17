@@ -1,3 +1,4 @@
+
 let loadMessageUrl = "ajax_load_messages.php"; // Updated to new endpoint
 let sendMessageUrl = "ajax_send_message.php"; // Updated to new endpoint
 
@@ -87,4 +88,5 @@ function getChatpartner() {
   console.log("Friend:", friendValue);
   return friendValue;
 }
+
 

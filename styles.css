@@ -359,6 +359,13 @@ fieldset .about-you-textfield {
     background-color: darkgrey;
 }
 
+.btn-remove {
+    border:none;
+    background-color:transparent;
+    cursor: pointer;
+    font-size:0.9rem;
+}
+
 .big-textfield {
     width:70%;
     height:30px;
