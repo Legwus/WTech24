@@ -1,23 +1,22 @@
 <?php
 require "start.php";
 
+// get the passed JSON from JS and make it readable for php since it can't properly deal with undecoded JSON
+$data = json_decode(file_get_contents("php://input"), true);
 
-
-if (!isset($_POST['username'])) {
+if (!isset($_SESSION['user'])) {
     http_response_code(401); // not authorized
-    //var_dump($_POST);
     return;
-} else {
-  
 }
-//+ $_POST['username']
+
 // Backend aufrufen
-$response = $service->friendRequest(array("username" => "Tom"));
+$response = $service->friendRequest($data);
 if ($response) {
-    var_dump($response);	
-    
+    // erhaltene Friend-Objekte im JSON-Format senden 
+    var_dump("Successful friendrequest!");
 } else {
-  
+    var_dump("Error in friendrequest!");
+    var_dump($response);
 }
 /* http status code setzen
  * - 200 Friends gesendet

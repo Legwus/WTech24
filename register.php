@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if (count($errors) == 0) {
     $res = $service->register($username, $password);
-    
+
     if ($res) {
       $_SESSION['user']=$username;
       header("Location: friends.php");

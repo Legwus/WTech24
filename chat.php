@@ -12,10 +12,6 @@ if (!isset($_SESSION['user'])) {
 
 if(!isset($_GET["friend"])) {
   header("Location: friends.php");
-  
-}else{
-   $friend = $_GET["friend"];
-   
 }
   
 
@@ -38,9 +34,8 @@ if(!isset($_GET["friend"])) {
         <div class="megaklasa">
           <p class="align-to-the-left">
             <a href="friends.php"> &lt; Back </a> <span> | </span>
-            <a href="profile.php?user=<?= htmlspecialchars($friend, ENT_QUOTES, 'UTF-8') ?>">Profile</a> <span> | </span>
-
-            <a class="red-link" href="ajax_delete_friend.php?user=<?= htmlspecialchars($friend, ENT_QUOTES, 'UTF-8') ?>" > Remove Friend </a>
+            <a href="profile.php">Profile </a> <span> | </span>
+            <a class="red-link" href="friends.php"> Remove Friend </a>
           </p>
           <hr class="dotted-border" />
           <ul class="chatbox" id="chat-container">
