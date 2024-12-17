@@ -72,7 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body class="bg-light container-lg d-flex justify-content-center">
   <br>
-  <div class="flex-container arialfont">
+
+  <div class="bg-white flex-container arialfont">
+
     <div class="center">
       <img class="rounded-circle mx-auto d-block w-25 m-3" src="./images/user.png" class="img-rounded"
         alt="Login page" />

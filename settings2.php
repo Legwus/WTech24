@@ -114,7 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?>value="Neither Nor">Neither nor</option>
             <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee </option>
             <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea </option>
-
           </select><br /> -->
         <hr>
         
@@ -124,7 +123,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <textarea name="bio" class="form-control" id="bio" rows="3"><?php echo $user->getBio(); ?></textarea>
           </div>
           <!-- <textarea
-
             id="bio"
             name="bio"
             placeholder="something idk"><?php //echo $user->getBio(); ?></textarea> -->
@@ -149,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           <!-- 'sepline' radio button mapped to false -->
           <!-- <input type="radio" id="sepline" name="radio" value="0" <?php if ($user->getRadio() == false) echo 'checked'; ?> />Username and message in separated lines -->
-    
+      <br/>
       <hr>
       <div class="btn-group w-100" role="group" aria-label="Basic example">
 
@@ -160,7 +158,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </button>
 
       </div>
+      <br/>
+        <a href="friends.php">
+          <button type="button">Cancel</button>
+        </a>
 
+        <input
+        
+          type="submit"
+          value="Save"
+          form="settingsForm" />
+      </form>
 <!-- </div> -->
   </div>
     </div>
