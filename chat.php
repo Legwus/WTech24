@@ -14,8 +14,10 @@ if (!isset($_SESSION['user'])) {
 if (!isset($_GET["friend"])) {
   header("Location: friends.php");
 
+
 } else {
   $friend = $_GET["friend"];
+
 
 }
 
@@ -23,6 +25,7 @@ if (!isset($_GET["friend"])) {
 
 
 ?>
+
 
 <head>
   <meta charset="UTF-8" />
@@ -100,6 +103,7 @@ if (!isset($_GET["friend"])) {
                 class="btn btn-danger">Yes, Please!</a>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ let jerry = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOj
 let token = jerry;*/
 
 const friendName = document.getElementById("friendName");
-setInterval(listMessages, 1000);  // Refresh messages every 5 seconds
+setInterval(listMessages, 5000);  // Refresh messages every 5 seconds
 document.addEventListener("DOMContentLoaded", () => {
   const nameFromQuery = getChatpartner();
   if (nameFromQuery) {
