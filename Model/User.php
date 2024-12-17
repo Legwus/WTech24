@@ -13,7 +13,7 @@ class User implements JsonSerializable
     private string $fname;
     private string $surname;
     private string $coffeeTea;
-    private string $bio = "";
+    private string $bio;
     private bool $radio;
     private array $versions;
 
