@@ -114,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option <?php if ($user->getCoffeeTea() == 'Neither nor') echo 'selected=selected' ?>value="Neither Nor">Neither nor</option>
             <option <?php if ($user->getCoffeeTea() == 'Coffee') echo 'selected=selected' ?> value="Coffee">Coffee </option>
             <option <?php if ($user->getCoffeeTea() == 'Tea') echo 'selected=selected' ?> value="Tea">Tea </option>
+
           </select><br /> -->
         <hr>
         
@@ -123,6 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <textarea name="bio" class="form-control" id="bio" rows="3"><?php echo $user->getBio(); ?></textarea>
           </div>
           <!-- <textarea
+
             id="bio"
             name="bio"
             placeholder="something idk"><?php //echo $user->getBio(); ?></textarea> -->

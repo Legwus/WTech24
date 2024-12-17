@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,5 +70,6 @@
     </div>
     <script src="friends.js"></script>
 </body>
+
 
 </html>
