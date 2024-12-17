@@ -29,6 +29,12 @@ if (!isset($_GET["friend"])) {
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Page</title>
+  <style>
+    #chat-container {
+      max-height: 500px;
+      /* Adjust the height as needed */
+    }
+  </style>
 </head>
 
 <body class="bg-light container-lg d-flex justify-content-center">
@@ -52,9 +58,12 @@ if (!isset($_GET["friend"])) {
       </div>
 
 
-      <div class="border pt-3 mt-4 mb-4 bg-white">
-        <ul class="chatbox" id="chat-container">
+      <div class="border pt-2 mt-4 mb-4 bg-white">
+
+        <ul id="chat-container" class="list-group overflow-scroll p-2">
+
         </ul>
+
       </div>
       <form id="chatSendForm">
 
@@ -107,7 +116,7 @@ if (!isset($_GET["friend"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
-  <script src="profile.js"></script>
+
 </body>
 
 </html>
