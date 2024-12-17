@@ -83,7 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="floating-form mb-3">
           
           <input  name="fname" value="<?php echo $user->getFirstName(); ?>" type="name" class="form-control custom-height" id="fname" placeholder="Your First Name">
-          </div>
+          
+        </div>
 
 
           <!-- <input value="<?php echo $user->getFirstName(); ?>"
