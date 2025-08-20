@@ -167,6 +167,7 @@ class BackendService
         }
         return false;
     }
+    
 
     /**
      * Liefert alle existierenden Benutzer oder `false` im Fehlerfall.
