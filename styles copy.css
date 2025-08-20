@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     margin: 0;
@@ -10,38 +11,38 @@ body, html {
 
 
 .flex-container {
-    width:90vw;
+    width: 90vw;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height:100vh;
+    height: 100vh;
 }
 
-.flex-container > div {
+.flex-container>div {
     background-color: #f8f2ff;
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 800px;
-    max-height:700px;
+    max-height: 700px;
     margin: 10px;
     padding: 20px;
     font-size: 25px;
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
 }
 
 .horizontal-flex {
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     display: flex;
-    flex-direction:row;
-    
+    flex-direction: row;
+
 }
 
 .flex-container h2 {
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -51,13 +52,13 @@ body, html {
 }
 
 .dotted-border {
-    border-style:dotted;
+    border-style: dotted;
     border-color: grey;
 }
 
 form .friend-add-button {
-    margin-left:5%;
-    width:20%;
+    margin-left: 5%;
+    width: 20%;
 }
 
 .img-rounded {
@@ -79,22 +80,21 @@ form .friend-add-button {
 
 
 .fieldsetstyling input {
-    height:22px;
-    
+    height: 22px;
 }
 
 .megaklasa {
-    font-size:15px;
+    font-size: 15px;
     margin: unset 10px;
-    
 }
+
 .megaklasa a {
-    color:rgb(33, 137, 255);
+    color: rgb(33, 137, 255);
     text-decoration: none;
 }
 
 .megaklasa a:visited {
-    color:rgb(33, 137, 255);
+    color: rgb(33, 137, 255);
     text-decoration: none;
 }
 
@@ -102,9 +102,8 @@ form .friend-add-button {
 
 .friendlist {
     border: 2px solid rgb(216, 216, 216);
-    padding-left:10px;
-    padding-right:10px;
-   
+    padding-left: 10px;
+    padding-right: 10px;
     list-style: none;
     /* text-align: start; */
     background: white;
@@ -112,11 +111,10 @@ form .friend-add-button {
 
 
 .friendlist li {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    margin-bottom:20px;
-    width:100%;
-
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .friendlist li:first-child {
@@ -128,51 +126,47 @@ form .friend-add-button {
 }
 
 .friendlist a {
-    color:black;
+    color: black;
 }
 
 .friendlist a:visited {
-    color:black;
+    color: black;
 }
 
 .friendlist span {
-    text-align:center;
-    display:block;
-    margin-left:auto;
+    text-align: center;
+    display: block;
+    margin-left: auto;
     background-color: rgb(33, 137, 255);
-    color:white;
-    width:18px;
+    color: white;
+    width: 18px;
     font-weight: bold;
 }
 
 .chatbox {
-    height:400px;
-    overflow:scroll;
-
+    height: 400px;
+    overflow: scroll;
 }
 
 .chat .chatbox {
     border: 2px solid rgb(216, 216, 216);
-    padding-left:10px;
-    padding-right:10px;
-   
+    padding-left: 10px;
+    padding-right: 10px;
     list-style: none;
     /* text-align: start; */
     background: white;
 }
 
 .chat .chatbox li {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    margin-bottom:20px;
-    width:100%;
+    margin-bottom: 20px;
+    width: 100%;
 
 }
 
 
-.profile
-
-.chat .chatbox li:first-child {
+.profile .chat .chatbox li:first-child {
     margin-top: 20px;
 }
 
@@ -181,11 +175,11 @@ form .friend-add-button {
 }
 
 .chat .chatbox a {
-    color:black;
+    color: black;
 }
 
 .chat .chatbox a:visited {
-    color:black;
+    color: black;
 }
 
 
@@ -195,13 +189,12 @@ form .friend-add-button {
 }
 
 .item-align-to-the-left {
-    display:flex;
+    display: flex;
     align-items: start;
 }
 
 #sendButton {
-
-margin-top:0px;
+    margin-top: 0px;
 }
 
 .chat .megaklasa .red-link {
@@ -213,42 +206,43 @@ margin-top:0px;
 }
 
 .profile .infobox {
-    margin-left:15px;
+    margin-left: 15px;
     border: 2px solid rgb(216, 216, 216);
-    padding-left:10px;
-    padding-right:30px;
-   max-width:435px;
+    padding-left: 10px;
+    padding-right: 30px;
+    max-width: 435px;
     list-style: none;
-    text-align: start; 
+    text-align: start;
     background: white;
 }
+
 @media only screen and (max-width:810px) {
     .profile .infobox {
-        margin-left:15px;
+        margin-left: 15px;
         border: 2px solid rgb(216, 216, 216);
-        padding-left:10px;
-        padding-right:30px;
-        padding-bottom:30px;
-        margin-bottom:30px;
-       max-width:365px;
+        padding-left: 10px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        max-width: 365px;
         list-style: none;
-        text-align: start; 
+        text-align: start;
         background: white;
     }
 }
 
 @media only screen and (max-width:600px) {
     .profile .infobox {
-        margin-top:30px;
-        margin-left:15px;
+        margin-top: 30px;
+        margin-left: 15px;
         border: 2px solid rgb(216, 216, 216);
-        padding-left:10px;
-        padding-right:30px;
-        padding-bottom:30px;
-        margin-bottom:30px;
-       max-width:206px;
+        padding-left: 10px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        max-width: 206px;
         list-style: none;
-        text-align: start; 
+        text-align: start;
         background: white;
     }
 }
@@ -264,28 +258,28 @@ margin-top:0px;
 
 
 .fieldsetstyling label {
-    width:150px;
+    width: 150px;
     white-space: nowrap;
-    display:inline-block;
+    display: inline-block;
     text-align: right;
     margin-right: 5px;
-    
-    
+
+
 }
 
 
 
 .fieldsetstyling select {
-    width:160px;
+    width: 160px;
     white-space: nowrap;
-    display:inline-block;
+    display: inline-block;
     text-align: left;
     margin-right: 0px;
     background-color: white;
-    border-style:solid;
-    border-color:black;
-    border-width:1px;
-    height:26px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    height: 26px;
 }
 
 
@@ -299,7 +293,7 @@ margin-top:0px;
 }
 
 .settings textarea {
-    resize:none;
+    resize: none;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -310,29 +304,29 @@ fieldset .about-you-textfield {
 }
 
 .nicebutton {
-    padding:10px;
-    width:100px;
-    border:1px;
-    display:inline-block;
-    margin:5px;
+    padding: 10px;
+    width: 100px;
+    border: 1px;
+    display: inline-block;
+    margin: 5px;
     margin-top: 10px;
     background-color: rgb(162, 162, 162);
-    font-size:15px;
-    
+    font-size: 15px;
+
     font-weight: bold;
-    color:white;
+    color: white;
     text-decoration: none;
-    cursor:pointer;
-    
+    cursor: pointer;
+
 }
 
-.registerButton:hover{
+.registerButton:hover {
     background-color: rgb(72, 72, 72);
 }
 
 .nicebutton:disabled {
-    cursor:not-allowed;
-    background-color:grey;
+    cursor: not-allowed;
+    background-color: grey;
 }
 
 .nicebutton:hover:disabled {
@@ -340,7 +334,7 @@ fieldset .about-you-textfield {
 }
 
 .button-disabled {
-    cursor:not-allowed;
+    cursor: not-allowed;
 }
 
 .rounded-corners {
@@ -360,19 +354,19 @@ fieldset .about-you-textfield {
 }
 
 .big-textfield {
-    width:70%;
-    height:30px;
+    width: 70%;
+    height: 30px;
 }
 
 .default-image-size {
-    width:150px;
-    height:150px;
+    width: 150px;
+    height: 150px;
 }
 
 .profile-image-size {
-    width:250px;
-    height:250px;
-    margin-left:15px;
+    width: 250px;
+    height: 250px;
+    margin-left: 15px;
 }
 
 .form-group {

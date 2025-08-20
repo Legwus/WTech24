@@ -29,7 +29,6 @@ if ($friends) {
 }
 
 $token = $_SESSION['chat_token'];
-//$beCollectionId = $_SESSION['chat_token'];
 
 echo <<<EOL
     <script>

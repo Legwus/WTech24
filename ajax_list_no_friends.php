@@ -2,6 +2,7 @@
 $users = $service->loadUsers();
 $friends = $service->loadFriends();
 
+
 if ($users) {
     echo '<form id="userListForm" class="align-to-the-left" onsubmit="event => addUser(event)">';
     echo '<input class="big-textfield" type="text" id="addFriend" name="addFriend" placeholder="Add a Friend to List" list="friend-selector">';

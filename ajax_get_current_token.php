@@ -6,6 +6,7 @@ if (!isset($_SESSION['chat_token'])) {
     return;
 }
 
+
 echo json_encode([
     'user' => $_SESSION['chat_token'] ?? null,
 ]);
